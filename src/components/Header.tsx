@@ -294,8 +294,8 @@ export const Header = () => {
       <Row
         as="header"
         fillWidth
-        paddingX="24"
-        paddingY="16"
+        paddingX="16"
+        paddingY="12"
         horizontal="between"
         vertical="center"
         hide
@@ -336,7 +336,7 @@ export const Header = () => {
               right: 0,
               bottom: 0,
               zIndex: 99999,
-              backgroundColor: "rgba(10, 15, 25, 0.95)",
+              backgroundColor: "var(--page-background)",
               backdropFilter: "blur(16px)",
               display: "flex",
               flexDirection: "column",
