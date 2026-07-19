@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { Fade, Flex, Line, Row, ToggleButton, Column, Text, Button, IconButton } from "@once-ui-system/core";
@@ -116,6 +116,15 @@ export const Header = () => {
   const locale = (params?.locale as string) || "tr";
   const { person, about, blog, work, gallery } = getDictionary(locale);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const router = useRouter();
+
+  const handleMobileNav = (e: React.MouseEvent<any>, href: string) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    setTimeout(() => {
+      router.push(href);
+    }, 350);
+  };
 
   return (
     <>
@@ -352,42 +361,42 @@ export const Header = () => {
             >
               {routes["/"] && (
                 <motion.div variants={itemVariants}>
-                  <Button href={`/${locale}`} prefixIcon="home" variant="tertiary" size="l" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button href={`/${locale}`} prefixIcon="home" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}`)}>
                     {locale === "en" ? "Home" : "Ana Sayfa"}
                   </Button>
                 </motion.div>
               )}
               {routes["/about"] && (
                 <motion.div variants={itemVariants}>
-                  <Button href={`/${locale}/about`} prefixIcon="person" variant="tertiary" size="l" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button href={`/${locale}/about`} prefixIcon="person" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}/about`)}>
                     {about.label}
                   </Button>
                 </motion.div>
               )}
               {routes["/work"] && (
                 <motion.div variants={itemVariants}>
-                  <Button href={`/${locale}/work`} prefixIcon="code" variant="tertiary" size="l" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button href={`/${locale}/work`} prefixIcon="code" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}/work`)}>
                     {work.label}
                   </Button>
                 </motion.div>
               )}
               {routes["/opensource"] && (
                 <motion.div variants={itemVariants}>
-                  <Button href={`/${locale}/opensource`} prefixIcon="github" variant="tertiary" size="l" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button href={`/${locale}/opensource`} prefixIcon="github" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}/opensource`)}>
                     {locale === "tr" ? "Açık Kaynak" : "Open Source"}
                   </Button>
                 </motion.div>
               )}
               {routes["/blog"] && (
                 <motion.div variants={itemVariants}>
-                  <Button href={`/${locale}/blog`} prefixIcon="book" variant="tertiary" size="l" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button href={`/${locale}/blog`} prefixIcon="book" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}/blog`)}>
                     {blog.label}
                   </Button>
                 </motion.div>
               )}
               {routes["/gallery"] && (
                 <motion.div variants={itemVariants}>
-                  <Button href={`/${locale}/gallery`} prefixIcon="gallery" variant="tertiary" size="l" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Button href={`/${locale}/gallery`} prefixIcon="gallery" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}/gallery`)}>
                     {gallery.label}
                   </Button>
                 </motion.div>
