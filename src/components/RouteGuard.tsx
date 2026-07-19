@@ -56,6 +56,12 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
       }
 
       setLoading(false);
+      
+      // Force scroll to top to prevent the new page from rendering under the sticky header
+      // when navigating from the bottom of a previous page.
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 0);
     };
 
     performChecks();
