@@ -19,7 +19,7 @@ export default async function Gallery(props: { params: Promise<{ locale: string 
   const params = await props.params;
   const { gallery, person } = getDictionary(params.locale);
   return (
-    <Column maxWidth="m" paddingTop="24" fillWidth>
+    <Column maxWidth="m" fillWidth>
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -33,7 +33,7 @@ export default async function Gallery(props: { params: Promise<{ locale: string 
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading marginBottom="l" variant="heading-strong-xl" align="center">
+      <Heading marginBottom="m" variant="heading-strong-xl" align="center">
         {gallery.title}
       </Heading>
       <GalleryView />
