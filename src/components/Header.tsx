@@ -10,7 +10,7 @@ import { useParams } from "next/navigation";
 import { getDictionary } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 
 const AnimatedHamburger = ({ isOpen, toggle }: { isOpen: boolean; toggle: () => void }) => {
   return (
@@ -72,7 +72,7 @@ const AnimatedHamburger = ({ isOpen, toggle }: { isOpen: boolean; toggle: () => 
   );
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   open: { opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] } },
   closed: { opacity: 0, y: 20, transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] } },
 };

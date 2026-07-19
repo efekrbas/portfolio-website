@@ -151,7 +151,6 @@ export default async function About(props: { params: Promise<{ locale: string }>
               className={styles.textAlign}
               variant="display-default-xs"
               onBackground="neutral-medium"
-              s={{ align: "center" }}
             >
               {person.role}
             </Text>
