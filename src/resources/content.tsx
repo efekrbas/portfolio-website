@@ -188,7 +188,13 @@ const gallery: Gallery = {
   label: "Galeri",
   title: `Fotoğraf Galerisi – ${person.name}`,
   description: `${person.name} adlı kişinin fotoğraf koleksiyonu`,
-  images: [],
+  images: [
+    {
+      src: "/images/efe.png",
+      alt: "Efe Kırbaş",
+      orientation: "vertical",
+    }
+  ],
 };
 
 export { person, social, newsletter, home, about, blog, work, gallery };
