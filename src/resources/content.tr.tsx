@@ -14,7 +14,7 @@ const person: Person = {
   name: `Efe Kırbaş`,
   role: "Yazılım Geliştirici & Sızma Testi Uzmanı",
   avatar: "/images/efe.jpg",
-  email: "iletisim@efekrbs.com.tr",
+  email: "efekrbass@gmail.com",
   location: "Istanbul, TR",
   languages: ["TR", "EN"],
   locale: "tr",
@@ -30,13 +30,13 @@ const social: Social = [
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/in/efe-kirbas/",
+    link: "https://linkedin.com/in/efekrbs",
     essential: true,
   },
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/efekrbs",
+    link: "https://github.com/efekrbas",
     essential: true,
   },
   {
@@ -45,12 +45,7 @@ const social: Social = [
     link: "https://medium.com/@efekk",
     essential: true,
   },
-  {
-    name: "Website",
-    icon: "globe",
-    link: "https://efekrbs.com.tr",
-    essential: true,
-  },
+
   {
     name: "Email",
     icon: "email",
