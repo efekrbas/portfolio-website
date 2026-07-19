@@ -118,6 +118,11 @@ export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
 
+  const resolveHref = (path: string) => {
+    if (locale === "en") return `/en${path === "/" ? "" : path}`;
+    return path || "/";
+  };
+
   const handleMobileNav = (e: React.MouseEvent<any>, href: string) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
@@ -160,7 +165,7 @@ export const Header = () => {
           >
             <Row gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
               {routes["/"] && (
-                <ToggleButton prefixIcon="home" href={`/${locale}`} selected={pathname === `/${locale}` || pathname === "/"} />
+                <ToggleButton prefixIcon="home" href={resolveHref("/")} selected={pathname === `/${locale}` || pathname === "/"} />
               )}
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
               {routes["/about"] && (
@@ -168,7 +173,7 @@ export const Header = () => {
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       prefixIcon="person"
-                      href={`/${locale}/about`}
+                      href={resolveHref("/about")}
                       label={about.label}
                       selected={pathname.includes("/about")}
                     />
@@ -176,7 +181,7 @@ export const Header = () => {
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
                       prefixIcon="person"
-                      href={`/${locale}/about`}
+                      href={resolveHref("/about")}
                       selected={pathname.includes("/about")}
                     />
                   </Row>
@@ -187,7 +192,7 @@ export const Header = () => {
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       prefixIcon="code"
-                      href={`/${locale}/work`}
+                      href={resolveHref("/work")}
                       label={work.label}
                       selected={pathname.includes("/work")}
                     />
@@ -195,7 +200,7 @@ export const Header = () => {
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
                       prefixIcon="code"
-                      href={`/${locale}/work`}
+                      href={resolveHref("/work")}
                       selected={pathname.includes("/work")}
                     />
                   </Row>
@@ -206,7 +211,7 @@ export const Header = () => {
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       prefixIcon="github"
-                      href={`/${locale}/opensource`}
+                      href={resolveHref("/opensource")}
                       label={locale === "tr" ? "Açık Kaynak" : "Open Source"}
                       selected={pathname.includes("/opensource")}
                     />
@@ -214,7 +219,7 @@ export const Header = () => {
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
                       prefixIcon="github"
-                      href={`/${locale}/opensource`}
+                      href={resolveHref("/opensource")}
                       selected={pathname.includes("/opensource")}
                     />
                   </Row>
@@ -225,7 +230,7 @@ export const Header = () => {
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       prefixIcon="book"
-                      href={`/${locale}/blog`}
+                      href={resolveHref("/blog")}
                       label={blog.label}
                       selected={pathname.includes("/blog")}
                     />
@@ -233,7 +238,7 @@ export const Header = () => {
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
                       prefixIcon="book"
-                      href={`/${locale}/blog`}
+                      href={resolveHref("/blog")}
                       selected={pathname.includes("/blog")}
                     />
                   </Row>
@@ -244,7 +249,7 @@ export const Header = () => {
                   <Row s={{ hide: true }}>
                     <ToggleButton
                       prefixIcon="gallery"
-                      href={`/${locale}/gallery`}
+                      href={resolveHref("/gallery")}
                       label={gallery.label}
                       selected={pathname.includes("/gallery")}
                     />
@@ -252,25 +257,12 @@ export const Header = () => {
                   <Row hide s={{ hide: false }}>
                     <ToggleButton
                       prefixIcon="gallery"
-                      href={`/${locale}/gallery`}
+                      href={resolveHref("/gallery")}
                       selected={pathname.includes("/gallery")}
                     />
                   </Row>
                 </>
               )}
-              <Line background="neutral-alpha-medium" vert maxHeight="24" />
-              <Row gap="2" vertical="center">
-                <ToggleButton
-                  href={pathname.replace(new RegExp(`^/${locale}`), '/tr') || '/tr'}
-                  label="TR"
-                  selected={locale === "tr"}
-                />
-                <ToggleButton
-                  href={pathname.replace(new RegExp(`^/${locale}`), '/en') || '/en'}
-                  label="EN"
-                  selected={locale === "en"}
-                />
-              </Row>
               {display.themeSwitcher && (
                 <>
                   <Line background="neutral-alpha-medium" vert maxHeight="24" />
@@ -361,42 +353,42 @@ export const Header = () => {
             >
               {routes["/"] && (
                 <motion.div variants={itemVariants}>
-                  <Button prefixIcon="home" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}`)}>
+                  <Button prefixIcon="home" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, resolveHref("/"))}>
                     {locale === "en" ? "Home" : "Ana Sayfa"}
                   </Button>
                 </motion.div>
               )}
               {routes["/about"] && (
                 <motion.div variants={itemVariants}>
-                  <Button prefixIcon="person" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}/about`)}>
+                  <Button prefixIcon="person" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, resolveHref("/about"))}>
                     {about.label}
                   </Button>
                 </motion.div>
               )}
               {routes["/work"] && (
                 <motion.div variants={itemVariants}>
-                  <Button prefixIcon="code" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}/work`)}>
+                  <Button prefixIcon="code" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, resolveHref("/work"))}>
                     {work.label}
                   </Button>
                 </motion.div>
               )}
               {routes["/opensource"] && (
                 <motion.div variants={itemVariants}>
-                  <Button prefixIcon="github" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}/opensource`)}>
+                  <Button prefixIcon="github" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, resolveHref("/opensource"))}>
                     {locale === "tr" ? "Açık Kaynak" : "Open Source"}
                   </Button>
                 </motion.div>
               )}
               {routes["/blog"] && (
                 <motion.div variants={itemVariants}>
-                  <Button prefixIcon="book" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}/blog`)}>
+                  <Button prefixIcon="book" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, resolveHref("/blog"))}>
                     {blog.label}
                   </Button>
                 </motion.div>
               )}
               {routes["/gallery"] && (
                 <motion.div variants={itemVariants}>
-                  <Button prefixIcon="gallery" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}/gallery`)}>
+                  <Button prefixIcon="gallery" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, resolveHref("/gallery"))}>
                     {gallery.label}
                   </Button>
                 </motion.div>
@@ -418,16 +410,6 @@ export const Header = () => {
                 gap="4"
                 vertical="center"
               >
-                <ToggleButton
-                  href={pathname.replace(new RegExp(`^/${locale}`), '/tr') || '/tr'}
-                  label="TR"
-                  selected={locale === "tr"}
-                />
-                <ToggleButton
-                  href={pathname.replace(new RegExp(`^/${locale}`), '/en') || '/en'}
-                  label="EN"
-                  selected={locale === "en"}
-                />
                 {display.themeSwitcher && (
                   <>
                     <Line background="neutral-alpha-medium" vert maxHeight="24" />

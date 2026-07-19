@@ -1,36 +1,43 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-const locales = ['tr', 'en'];
-const defaultLocale = 'tr';
+const PUBLIC_FILE = /\.(.*)$/;
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Check if there is any supported locale in the pathname
-  const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  );
-
-  if (pathnameHasLocale) return;
-
-  // Skip api, public files, and generic next files
+  // Ignore static files, api routes, and next internals
   if (
-    pathname.startsWith('/api') ||
     pathname.startsWith('/_next') ||
-    pathname.includes('.')
+    pathname.startsWith('/api') ||
+    PUBLIC_FILE.test(pathname)
   ) {
-    return;
+    return NextResponse.next();
   }
 
-  // Redirect if there is no locale
-  request.nextUrl.pathname = `/${defaultLocale}${pathname}`;
-  return NextResponse.redirect(request.nextUrl);
+  // If URL explicitly starts with /tr, redirect to remove it (Asymmetric Routing)
+  if (pathname === '/tr' || pathname.startsWith('/tr/')) {
+    const newPath = pathname.replace(/^\/tr/, '') || '/';
+    return NextResponse.redirect(new URL(newPath, request.url), 301);
+  }
+
+  // If URL explicitly starts with /en, leave it alone
+  if (pathname === '/en' || pathname.startsWith('/en/')) {
+    return NextResponse.next();
+  }
+
+  // Auto-redirect to English ONLY on the root page if browser language is English
+  if (pathname === '/') {
+    const acceptLanguage = request.headers.get('accept-language');
+    if (acceptLanguage && acceptLanguage.toLowerCase().startsWith('en')) {
+      return NextResponse.redirect(new URL('/en', request.url));
+    }
+  }
+
+  // Rewrite all other prefix-less paths to /tr/... under the hood
+  return NextResponse.rewrite(new URL(`/tr${pathname === '/' ? '' : pathname}`, request.url));
 }
 
 export const config = {
-  matcher: [
-    // Skip all internal paths (_next)
-    '/((?!_next).*)',
-  ],
+  matcher: ['/((?!api|_next/static|_next/image|images|icon.svg|robots.txt|sitemap.xml|favicon.ico).*)'],
 };
