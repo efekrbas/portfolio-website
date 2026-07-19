@@ -209,7 +209,7 @@ const gallery: Gallery = {
   description: `Photo collection of ${person.name}`,
   images: [
     {
-      src: "/images/efe1.jpg",
+      src: "/images/efesol.jpg",
       alt: "Efe Kırbaş 1",
       orientation: "vertical",
     },
@@ -219,7 +219,7 @@ const gallery: Gallery = {
       orientation: "vertical",
     },
     {
-      src: "/images/efe.png",
+      src: "/images/efesag.png",
       alt: "Efe Kırbaş 3",
       orientation: "vertical",
     }
