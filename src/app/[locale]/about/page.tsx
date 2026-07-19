@@ -166,7 +166,7 @@ export default async function About(props: { params: Promise<{ locale: string }>
               {person.role}
             </Text>
             <Row gap="8" vertical="center" horizontal="center" paddingTop="12" style={{ justifyContent: "center", width: "100%" }}>
-              <Icon onBackground="accent-weak" name="globe" />
+              <Icon onBackground="neutral-strong" name="globe" />
               <Text variant="body-default-m" onBackground="neutral-medium">{person.location}</Text>
             </Row>
             {social.length > 0 && (
