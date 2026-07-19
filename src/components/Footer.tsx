@@ -1,9 +1,15 @@
+"use client";
+
 import { Row, IconButton, SmartLink, Text } from "@once-ui-system/core";
-import { person, social } from "@/resources";
+import { useParams } from "next/navigation";
+import { getDictionary } from "@/resources";
 import styles from "./Footer.module.scss";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const params = useParams();
+  const locale = (params?.locale as string) || "tr";
+  const { person, social } = getDictionary(locale);
 
   return (
     <Row as="footer" fillWidth padding="8" horizontal="center" s={{ direction: "column" }}>

@@ -20,6 +20,7 @@ import {
   PiGridFourDuotone,
   PiBookBookmarkDuotone,
   PiImageDuotone,
+  PiCode,
 } from "react-icons/pi";
 
 import {
@@ -27,6 +28,8 @@ import {
   SiNextdotjs,
   SiFigma,
   SiSupabase,
+  SiMedium,
+  SiTryhackme,
 } from "react-icons/si";
 
 import { FaDiscord, FaGithub, FaLinkedin, FaX, FaThreads, FaInstagram, FaXTwitter, FaFacebook, FaPinterest, FaWhatsapp, FaReddit, FaTelegram, } from "react-icons/fa6";
@@ -38,6 +41,7 @@ export const iconLibrary: Record<string, IconType> = {
   globe: HiOutlineGlobeAsiaAustralia,
   person: PiUserCircleDuotone,
   grid: PiGridFourDuotone,
+  code: PiCode,
   book: PiBookBookmarkDuotone,
   openLink: HiOutlineLink,
   calendar: HiCalendarDays,
@@ -64,6 +68,8 @@ export const iconLibrary: Record<string, IconType> = {
   reddit: FaReddit,
   telegram: FaTelegram,
   instagram: FaInstagram,
+  medium: SiMedium,
+  tryhackme: SiTryhackme,
 };
 
 export type IconLibrary = typeof iconLibrary;

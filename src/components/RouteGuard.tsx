@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import { routes, protectedRoutes } from "@/resources";
+import { usePathname, useParams } from "next/navigation";
+import { routes, protectedRoutes } from "@/resources/once-ui.config";
 import { Flex, Spinner, Button, Heading, Column, PasswordInput } from "@once-ui-system/core";
-import NotFound from "@/app/not-found";
+import NotFound from "@/app/[locale]/not-found";
 
 interface RouteGuardProps {
   children: React.ReactNode;
@@ -12,6 +12,8 @@ interface RouteGuardProps {
 
 const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
   const pathname = usePathname();
+  const params = useParams();
+  const locale = (params?.locale as string) || "tr";
   const [isRouteEnabled, setIsRouteEnabled] = useState(false);
   const [isPasswordRequired, setIsPasswordRequired] = useState(false);
   const [password, setPassword] = useState("");
@@ -29,13 +31,16 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
       const checkRouteEnabled = () => {
         if (!pathname) return false;
 
-        if (pathname in routes) {
-          return routes[pathname as keyof typeof routes];
+        let cleanPath = pathname.replace(new RegExp(`^/${locale}`), "");
+        if (cleanPath === "") cleanPath = "/";
+
+        if (cleanPath in routes) {
+          return routes[cleanPath as keyof typeof routes];
         }
 
         const dynamicRoutes = ["/blog", "/work"] as const;
         for (const route of dynamicRoutes) {
-          if (pathname?.startsWith(route) && routes[route]) {
+          if (cleanPath?.startsWith(route) && routes[route]) {
             return true;
           }
         }
@@ -46,7 +51,10 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
       const routeEnabled = checkRouteEnabled();
       setIsRouteEnabled(routeEnabled);
 
-      if (protectedRoutes[pathname as keyof typeof protectedRoutes]) {
+      let cleanPath = pathname?.replace(new RegExp(`^/${locale}`), "") || "/";
+      if (cleanPath === "") cleanPath = "/";
+
+      if (protectedRoutes[cleanPath as keyof typeof protectedRoutes]) {
         setIsPasswordRequired(true);
 
         const response = await fetch("/api/check-auth");

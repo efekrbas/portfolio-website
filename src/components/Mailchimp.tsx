@@ -1,6 +1,8 @@
 "use client";
 
-import { mailchimp, newsletter } from "@/resources";
+import { useParams } from "next/navigation";
+import { mailchimp } from "@/resources/once-ui.config";
+import { getDictionary } from "@/resources";
 import { Button, Heading, Input, Text, Background, Column, Row } from "@once-ui-system/core";
 import { opacity, SpacingToken } from "@once-ui-system/core";
 import { useState } from "react";
@@ -14,6 +16,10 @@ function debounce<T extends (...args: any[]) => void>(func: T, delay: number): T
 }
 
 export const Mailchimp: React.FC<React.ComponentProps<typeof Column>> = ({ ...flex }) => {
+  const params = useParams();
+  const locale = (params?.locale as string) || "tr";
+  const { newsletter } = getDictionary(locale);
+
   const [email, setEmail] = useState<string>("");
   const [error, setError] = useState<string>("");
   const [touched, setTouched] = useState<boolean>(false);

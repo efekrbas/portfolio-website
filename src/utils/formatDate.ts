@@ -1,4 +1,4 @@
-export function formatDate(date: string, includeRelative = false) {
+export function formatDate(date: string, includeRelative = false, locale: string = "en-US") {
   const currentDate = new Date();
 
   if (!date.includes("T")) {
@@ -28,7 +28,7 @@ export function formatDate(date: string, includeRelative = false) {
     formattedDate = "just now";
   }
 
-  const fullDate = targetDate.toLocaleString("en-us", {
+  const fullDate = targetDate.toLocaleString(locale, {
     month: "long",
     day: "numeric",
     year: "numeric",

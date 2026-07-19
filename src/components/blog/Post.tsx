@@ -2,7 +2,8 @@
 
 import { Card, Column, Media, Row, Avatar, Text } from "@once-ui-system/core";
 import { formatDate } from "@/utils/formatDate";
-import { person } from "@/resources";
+import { useParams } from "next/navigation";
+import { getDictionary } from "@/resources";
 
 interface PostProps {
   post: any;
@@ -11,6 +12,10 @@ interface PostProps {
 }
 
 export default function Post({ post, thumbnail, direction }: PostProps) {
+  const params = useParams();
+  const locale = (params?.locale as string) || "tr";
+  const { person } = getDictionary(locale);
+
   return (
     <Card
       fillWidth
@@ -37,22 +42,22 @@ export default function Post({ post, thumbnail, direction }: PostProps) {
           aspectRatio="16 / 9"
         />
       )}
-      <Row fillWidth>
-        <Column maxWidth={28} paddingY="24" paddingX="l" gap="20" vertical="center">
-          <Row gap="24" vertical="center">
-            <Row vertical="center" gap="16">
+      <Row fillWidth horizontal="center">
+        <Column paddingY="24" paddingX="l" gap="20" vertical="center" horizontal="center" align="center">
+          <Row gap="24" vertical="center" horizontal="center">
+            <Row vertical="center" gap="16" horizontal="center">
               <Avatar src={person.avatar} size="s" />
-              <Text variant="label-default-s">{person.name}</Text>
+              <Text variant="label-default-s" align="center">{person.name}</Text>
             </Row>
-            <Text variant="body-default-xs" onBackground="neutral-weak">
-              {formatDate(post.metadata.publishedAt, false)}
+            <Text variant="body-default-xs" onBackground="neutral-weak" align="center">
+              {formatDate(post.metadata.publishedAt, false, locale)}
             </Text>
           </Row>
-          <Text variant="heading-strong-l" wrap="balance">
+          <Text variant="heading-strong-l" wrap="balance" align="center">
             {post.metadata.title}
           </Text>
           {post.metadata.tag && (
-            <Text variant="label-strong-s" onBackground="neutral-weak">
+            <Text variant="label-strong-s" onBackground="neutral-weak" align="center">
               {post.metadata.tag}
             </Text>
           )}

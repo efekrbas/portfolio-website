@@ -1,9 +1,11 @@
 import { getPosts } from "@/utils/utils";
-import { baseURL, blog, person } from "@/resources";
+import { baseURL } from "@/resources";
+import { getDictionary } from "@/resources";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const posts = getPosts(["src", "app", "blog", "posts"]);
+  const { blog, person } = getDictionary("tr");
+  const posts = getPosts(["src", "app", "[locale]", "blog", "posts"]);
 
   // Sort posts by date (newest first)
   const sortedPosts = posts.sort((a, b) => {

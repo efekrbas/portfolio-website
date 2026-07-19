@@ -1,9 +1,11 @@
 import { ImageResponse } from "next/og";
-import { baseURL, person } from "@/resources";
+import { baseURL } from "@/resources";
+import { getDictionary } from "@/resources";
 
 export const runtime = "nodejs";
 
 export async function GET(request: Request) {
+  const { person } = getDictionary("tr");
   let url = new URL(request.url);
   let title = url.searchParams.get("title") || "Portfolio";
 

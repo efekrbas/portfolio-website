@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    text { fill: #1d1d1f; font-family: -apple-system, "Inter", "Segoe UI", system-ui, sans-serif; font-weight: 700; }
+    @media (prefers-color-scheme: dark) {
+      text { fill: #f5f5f7; }
+    }
+  </style>
+  <text x="32" y="50" text-anchor="middle" font-size="58" letter-spacing="-2">E</text>
+</svg>

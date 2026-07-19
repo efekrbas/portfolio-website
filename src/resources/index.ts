@@ -1,14 +1,9 @@
-// import a pre-defined template for config and content options
-export {
-  person,
-  social,
-  newsletter,
-  home,
-  about,
-  blog,
-  work,
-  gallery,
-} from "./content";
+import * as tr from "./content.tr";
+import * as en from "./content.en";
+
+export const getDictionary = (locale: string) => {
+  return locale === "en" ? en : tr;
+};
 
 export {
   display,
