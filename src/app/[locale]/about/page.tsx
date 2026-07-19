@@ -105,7 +105,7 @@ export default async function About(props: { params: Promise<{ locale: string }>
             top="64"
             fitHeight
             position="sticky"
-            s={{ position: "relative", style: { top: "auto" }, align: "center", horizontal: "center" }}
+            s={{ position: "relative", style: { top: "auto", paddingTop: "80px" }, align: "center", horizontal: "center" }}
             xs={{ style: { top: "auto" } }}
             minWidth="160"
             paddingX="l"
@@ -155,12 +155,12 @@ export default async function About(props: { params: Promise<{ locale: string }>
                 />
               </Row>
             )}
-            <Heading className={styles.textAlign} variant="display-strong-xl">
+            <Heading className={styles.textAlign} variant="heading-strong-xl">
               {person.name}
             </Heading>
             <Text
               className={styles.textAlign}
-              variant="display-default-xs"
+              variant="heading-default-m"
               onBackground="neutral-medium"
             >
               {person.role}
@@ -177,8 +177,9 @@ export default async function About(props: { params: Promise<{ locale: string }>
                 gap="4"
                 wrap={false}
                 horizontal="center"
-                fitWidth
+                fillWidth
                 data-border="rounded"
+                style={{ justifyContent: "center" }}
               >
                 {social
                       .filter((item) => item.essential)
@@ -215,7 +216,7 @@ export default async function About(props: { params: Promise<{ locale: string }>
           </Column>
 
           {about.intro.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl" s={{ paddingX: "20" }} style={{ textAlign: "left" }}>
+            <Column textVariant="body-default-m" align="start" fillWidth gap="m" marginBottom="104" s={{ paddingX: "20" }} style={{ textAlign: "left" }}>
               {about.intro.description}
             </Column>
           )}
