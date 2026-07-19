@@ -28,15 +28,15 @@ const newsletter: Newsletter = {
 
 const social: Social = [
   {
-    name: "GitHub",
-    icon: "github",
-    link: "https://github.com/efekrbs",
-    essential: true,
-  },
-  {
     name: "LinkedIn",
     icon: "linkedin",
     link: "https://www.linkedin.com/in/efe-kirbas/",
+    essential: true,
+  },
+  {
+    name: "GitHub",
+    icon: "github",
+    link: "https://github.com/efekrbs",
     essential: true,
   },
   {
@@ -46,9 +46,9 @@ const social: Social = [
     essential: true,
   },
   {
-    name: "TryHackMe",
-    icon: "tryhackme",
-    link: "https://tryhackme.com/p/efek",
+    name: "Website",
+    icon: "globe",
+    link: "https://efekrbs.com.tr",
     essential: true,
   },
   {
@@ -107,7 +107,7 @@ const about: About = {
     title: "Ben Kimim?",
     description: (
       <>
-        Medipol Sağlık Grubu'nda Bilgi İşlem Saha Destek Stajyeri olarak çalıştım ve bu süreçte son kullanıcıların donanım-yazılım sorunlarını çözme, arıza giderme konularında pratik deneyim kazandım. Ayrıca bilgisayar, yazıcı ve çevre birimlerinin kurulum–bakım işlemlerini gerçekleştirme konularında aktif görev aldım. Bilecik Şeyh Edebali Üniversitesi'nde Bilgisayar Programcılığı bölümünde önlisans eğitimime devam ediyor, aynı zamanda siber güvenlik, yazılım geliştirme ve yapay zeka teknolojileri üzerine yoğunlaşıyorum.
+        İstanbul Medipol Üniversitesi Sağlık Grubu'nda Bilgi İşlem Saha Destek Stajyeri olarak çalıştım ve bu süreçte son kullanıcıların donanım-yazılım sorunlarını çözme, arıza giderme konularında pratik deneyim kazandım. Ayrıca bilgisayar, yazıcı ve çevre birimlerinin kurulum–bakım işlemlerini gerçekleştirme konularında aktif görev aldım. Bilecik Şeyh Edebali Üniversitesi'nde <Text as="strong">"Bilgisayar Programcılığı"</Text> bölümünde önlisans eğitimime devam ediyor, aynı zamanda siber güvenlik, yazılım geliştirme ve yapay zeka teknolojileri üzerine yoğunlaşıyorum.
       </>
     ),
   },

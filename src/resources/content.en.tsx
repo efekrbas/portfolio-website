@@ -28,15 +28,15 @@ const newsletter: Newsletter = {
 
 const social: Social = [
   {
-    name: "GitHub",
-    icon: "github",
-    link: "https://github.com/efekrbs",
-    essential: true,
-  },
-  {
     name: "LinkedIn",
     icon: "linkedin",
     link: "https://www.linkedin.com/in/efe-kirbas/",
+    essential: true,
+  },
+  {
+    name: "GitHub",
+    icon: "github",
+    link: "https://github.com/efekrbs",
     essential: true,
   },
   {
@@ -46,9 +46,9 @@ const social: Social = [
     essential: true,
   },
   {
-    name: "TryHackMe",
-    icon: "tryhackme",
-    link: "https://tryhackme.com/p/efek",
+    name: "Website",
+    icon: "globe",
+    link: "https://efekrbs.com.tr",
     essential: true,
   },
   {
