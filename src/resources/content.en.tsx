@@ -202,23 +202,7 @@ const gallery: Gallery = {
   label: "Gallery",
   title: `Photo Gallery – ${person.name}`,
   description: `Photo collection of ${person.name}`,
-  images: [
-    {
-      src: "/images/efesol.jpg",
-      alt: "Efe Kırbaş 1",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/efeorta.jpg",
-      alt: "Efe Kırbaş 2",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/efesag.png",
-      alt: "Efe Kırbaş 3",
-      orientation: "vertical",
-    }
-  ],
+  images: [],
 };
 
 export { person, social, newsletter, home, about, blog, work, gallery };
