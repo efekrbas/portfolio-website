@@ -202,7 +202,23 @@ const gallery: Gallery = {
   label: "Galeri",
   title: `Fotoğraf Galerisi – ${person.name}`,
   description: `${person.name} adlı kişinin fotoğraf koleksiyonu`,
-  images: [],
+  images: [
+    {
+      src: "/images/efesol.jpg",
+      alt: "Efe Kırbaş 1",
+      orientation: "vertical",
+    },
+    {
+      src: "/images/efeorta.jpg",
+      alt: "Efe Kırbaş 2",
+      orientation: "vertical",
+    },
+    {
+      src: "/images/efesag.png",
+      alt: "Efe Kırbaş 3",
+      orientation: "vertical",
+    }
+  ],
 };
 
 export { person, social, newsletter, home, about, blog, work, gallery };
