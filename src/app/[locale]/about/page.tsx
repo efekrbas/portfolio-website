@@ -229,14 +229,12 @@ export default async function About(props: { params: Promise<{ locale: string }>
               <Column fillWidth gap="l" marginBottom="40">
                 {about.work.experiences.map((experience, index) => (
                   <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
-                      <Text id={experience.company} variant="heading-strong-l">
-                        {experience.company}
-                      </Text>
-                      <Text variant="heading-default-xs" style={{ color: "#a1a1aa" }}>
-                        {experience.timeframe}
-                      </Text>
-                    </Row>
+                    <Text id={experience.company} variant="heading-strong-l" marginBottom="2">
+                      {experience.company}
+                    </Text>
+                    <Text variant="heading-default-xs" style={{ color: "#a1a1aa" }} marginBottom="4">
+                      {experience.timeframe}
+                    </Text>
                     <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
                       {experience.role}
                     </Text>
