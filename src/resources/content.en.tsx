@@ -15,7 +15,7 @@ const person: Person = {
   role: "Software Developer & Penetration Tester",
   avatar: "/images/efe.jpg",
   email: "iletisim@efekrbs.com.tr",
-  location: "Istanbul, TR",
+  location: "Europe/Istanbul",
   languages: ["TR", "EN"],
   locale: "en",
 };

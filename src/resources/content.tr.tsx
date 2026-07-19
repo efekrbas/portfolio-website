@@ -15,7 +15,7 @@ const person: Person = {
   role: "Yazılım Geliştirici & Sızma Testi Uzmanı",
   avatar: "/images/efe.jpg",
   email: "iletisim@efekrbs.com.tr",
-  location: "Istanbul, TR",
+  location: "Europe/Istanbul",
   languages: ["TR", "EN"],
   locale: "tr",
 };
