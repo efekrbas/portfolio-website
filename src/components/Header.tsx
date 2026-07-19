@@ -361,42 +361,42 @@ export const Header = () => {
             >
               {routes["/"] && (
                 <motion.div variants={itemVariants}>
-                  <Button href={`/${locale}`} prefixIcon="home" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}`)}>
+                  <Button prefixIcon="home" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}`)}>
                     {locale === "en" ? "Home" : "Ana Sayfa"}
                   </Button>
                 </motion.div>
               )}
               {routes["/about"] && (
                 <motion.div variants={itemVariants}>
-                  <Button href={`/${locale}/about`} prefixIcon="person" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}/about`)}>
+                  <Button prefixIcon="person" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}/about`)}>
                     {about.label}
                   </Button>
                 </motion.div>
               )}
               {routes["/work"] && (
                 <motion.div variants={itemVariants}>
-                  <Button href={`/${locale}/work`} prefixIcon="code" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}/work`)}>
+                  <Button prefixIcon="code" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}/work`)}>
                     {work.label}
                   </Button>
                 </motion.div>
               )}
               {routes["/opensource"] && (
                 <motion.div variants={itemVariants}>
-                  <Button href={`/${locale}/opensource`} prefixIcon="github" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}/opensource`)}>
+                  <Button prefixIcon="github" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}/opensource`)}>
                     {locale === "tr" ? "Açık Kaynak" : "Open Source"}
                   </Button>
                 </motion.div>
               )}
               {routes["/blog"] && (
                 <motion.div variants={itemVariants}>
-                  <Button href={`/${locale}/blog`} prefixIcon="book" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}/blog`)}>
+                  <Button prefixIcon="book" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}/blog`)}>
                     {blog.label}
                   </Button>
                 </motion.div>
               )}
               {routes["/gallery"] && (
                 <motion.div variants={itemVariants}>
-                  <Button href={`/${locale}/gallery`} prefixIcon="gallery" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}/gallery`)}>
+                  <Button prefixIcon="gallery" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, `/${locale}/gallery`)}>
                     {gallery.label}
                   </Button>
                 </motion.div>
