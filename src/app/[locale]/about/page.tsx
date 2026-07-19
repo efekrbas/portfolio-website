@@ -117,10 +117,6 @@ export default async function About(props: { params: Promise<{ locale: string }>
             style={{ alignItems: "center", textAlign: "center" }}
           >
             <Avatar src={person.avatar} size="xl" />
-            <Row gap="8" vertical="center" horizontal="center" style={{ justifyContent: "center", width: "100%" }}>
-              <Icon onBackground="accent-weak" name="globe" />
-              {person.location}
-            </Row>
 
           </Column>
         )}
@@ -169,6 +165,10 @@ export default async function About(props: { params: Promise<{ locale: string }>
             >
               {person.role}
             </Text>
+            <Row gap="8" vertical="center" horizontal="center" paddingTop="12" style={{ justifyContent: "center", width: "100%" }}>
+              <Icon onBackground="accent-weak" name="globe" />
+              <Text variant="body-default-m" onBackground="neutral-medium">{person.location}</Text>
+            </Row>
             {social.length > 0 && (
               <Row
                 className={styles.blockAlign}

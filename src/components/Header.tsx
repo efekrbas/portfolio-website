@@ -314,7 +314,10 @@ export const Header = () => {
         <Text variant="heading-strong-m" onBackground="neutral-strong">
           {person.name}
         </Text>
-        <AnimatedHamburger isOpen={isMobileMenuOpen} toggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+        <Row gap="12" vertical="center">
+          {display.themeSwitcher && <ThemeToggle />}
+          <AnimatedHamburger isOpen={isMobileMenuOpen} toggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+        </Row>
       </Row>
 
       {/* Mobile Fullscreen Overlay */}
@@ -395,29 +398,7 @@ export const Header = () => {
               )}
             </motion.div>
 
-            <motion.div 
-              variants={itemVariants}
-              initial="closed"
-              animate="open"
-              exit="closed"
-              style={{ position: "absolute", bottom: "40px", zIndex: 10000 }}
-            >
-              <Row
-                background="page"
-                border="neutral-alpha-weak"
-                radius="m-4"
-                padding="4"
-                gap="4"
-                vertical="center"
-              >
-                {display.themeSwitcher && (
-                  <>
-                    <Line background="neutral-alpha-medium" vert maxHeight="24" />
-                    <ThemeToggle />
-                  </>
-                )}
-              </Row>
-            </motion.div>
+
           </motion.div>
         )}
       </AnimatePresence>
