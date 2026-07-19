@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 import { Fade, Flex, Line, Row, ToggleButton, Column, Text, Button, IconButton } from "@once-ui-system/core";
 import { routes, display } from "@/resources/once-ui.config";
@@ -149,7 +150,13 @@ export const Header = () => {
         s={{ hide: true }}
       >
         <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s" s={{ hide: true }}>
-          {display.location && <Row s={{ hide: true }}>{person.name}</Row>}
+          {display.location && (
+            <Row s={{ hide: true }}>
+              <Link href={resolveHref("/")} style={{ textDecoration: "none", color: "inherit" }}>
+                {person.name}
+              </Link>
+            </Row>
+          )}
         </Row>
         
         {/* Desktop Menu */}
@@ -311,9 +318,11 @@ export const Header = () => {
           borderBottom: "1px solid var(--neutral-alpha-weak)",
         }}
       >
-        <Text variant="heading-strong-m" onBackground="neutral-strong">
-          {person.name}
-        </Text>
+        <Link href={resolveHref("/")} style={{ textDecoration: "none" }}>
+          <Text variant="heading-strong-m" onBackground="neutral-strong">
+            {person.name}
+          </Text>
+        </Link>
         <Row gap="12" vertical="center">
           {display.themeSwitcher && <ThemeToggle />}
           <AnimatedHamburger isOpen={isMobileMenuOpen} toggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
