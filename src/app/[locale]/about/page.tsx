@@ -71,6 +71,21 @@ export default async function About(props: { params: Promise<{ locale: string }>
           image: `${baseURL}${person.avatar}`,
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: person.name,
+            jobTitle: person.role,
+            description: about.description,
+            image: `${baseURL}${person.avatar}`,
+            url: `${baseURL}`,
+            sameAs: social.map((s) => s.link).filter(Boolean),
+          }),
+        }}
+      />
       {about.tableOfContent.display && (
         <Column
           left="0"
