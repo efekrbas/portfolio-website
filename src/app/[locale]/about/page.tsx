@@ -90,7 +90,7 @@ export default async function About(props: { params: Promise<{ locale: string }>
             top="64"
             fitHeight
             position="sticky"
-            s={{ position: "relative", style: { top: "auto" } }}
+            s={{ position: "relative", style: { top: "auto" }, align: "center", horizontal: "center" }}
             xs={{ style: { top: "auto" } }}
             minWidth="160"
             paddingX="l"
@@ -99,7 +99,7 @@ export default async function About(props: { params: Promise<{ locale: string }>
             flex={3}
             horizontal="center"
             align="center"
-            style={{ alignItems: "center" }}
+            style={{ alignItems: "center", textAlign: "center" }}
           >
             <Avatar src={person.avatar} size="xl" />
             <Row gap="8" vertical="center" horizontal="center" style={{ justifyContent: "center", width: "100%" }}>
@@ -116,6 +116,8 @@ export default async function About(props: { params: Promise<{ locale: string }>
             minHeight="160"
             vertical="center"
             marginBottom="32"
+            s={{ align: "center", horizontal: "center" }}
+            style={{ textAlign: "center" }}
           >
             {about.calendar.display && (
               <Row
@@ -149,6 +151,7 @@ export default async function About(props: { params: Promise<{ locale: string }>
               className={styles.textAlign}
               variant="display-default-xs"
               onBackground="neutral-medium"
+              s={{ align: "center" }}
             >
               {person.role}
             </Text>
@@ -198,7 +201,7 @@ export default async function About(props: { params: Promise<{ locale: string }>
           </Column>
 
           {about.intro.display && (
-            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl">
+            <Column textVariant="body-default-l" fillWidth gap="m" marginBottom="xl" s={{ paddingX: "20" }} style={{ textAlign: "left" }}>
               {about.intro.description}
             </Column>
           )}

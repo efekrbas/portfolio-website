@@ -21,6 +21,8 @@ import {
   PiBookBookmarkDuotone,
   PiImageDuotone,
   PiCode,
+  PiList,
+  PiX,
 } from "react-icons/pi";
 
 import {
@@ -70,6 +72,8 @@ export const iconLibrary: Record<string, IconType> = {
   instagram: FaInstagram,
   medium: SiMedium,
   tryhackme: SiTryhackme,
+  menu: PiList,
+  close: PiX,
 };
 
 export type IconLibrary = typeof iconLibrary;
