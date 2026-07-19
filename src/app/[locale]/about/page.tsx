@@ -128,7 +128,7 @@ export default async function About(props: { params: Promise<{ locale: string }>
             vertical="center"
             marginBottom="32"
             s={{ align: "center", horizontal: "center" }}
-            style={{ textAlign: "center" }}
+            style={{ textAlign: "center", userSelect: "none" }}
           >
             {about.calendar.display && (
               <Row
