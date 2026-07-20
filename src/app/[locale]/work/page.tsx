@@ -37,7 +37,7 @@ export default async function Work(props: { params: Promise<{ locale: string }> 
         {work.title}
       </Heading>
       <Projects />
-      <Row horizontal="center" marginTop="xl">
+      <Row horizontal="center" marginTop="m">
         <Button href={`/${params.locale}/opensource`} variant="secondary" prefixIcon="github" arrowIcon size="m">
           {params.locale === 'tr' ? 'Diğer açık kaynak GitHub projelerimi inceleyin' : 'Check out my other open source GitHub projects'}
         </Button>
