@@ -1,4 +1,4 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work, Chatbot } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const calculateDuration = (startDate: string, endDate?: string) => {
@@ -221,4 +221,19 @@ const gallery: Gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+const chatbot: Chatbot = {
+  header: "Efek",
+  greeting: "Selam! Ben Efek, Efe'nin yapay zeka asistanıyım. Size nasıl yardımcı olabilirim?",
+  rateLimit: "Şu an çok fazla soru soruldu, biraz dinlenmem lazım. Lütfen birkaç saniye sonra tekrar dene! 😅",
+  placeholder: "Mesajınızı yazın...",
+  typing: "Yazıyor...",
+  suggestWho: "Efe kimdir?",
+  suggestExp: "Deneyimleri neler?",
+  suggestEdu: "Eğitimi nedir?",
+  suggestProj: "Projeleri neler?",
+  suggestContact: "Nasıl ulaşabilirim?",
+  suggestTech: "Yetenekleri neler?",
+  errorPrefix: "Hata:",
+};
+
+export { person, social, newsletter, home, about, blog, work, gallery, chatbot };

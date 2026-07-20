@@ -244,3 +244,21 @@ export interface Gallery extends BasePageConfig {
     orientation: string;
   }>;
 }
+
+/**
+ * Chatbot configuration.
+ */
+export interface Chatbot {
+  header: string;
+  greeting: string;
+  rateLimit: string;
+  placeholder: string;
+  typing: string;
+  suggestWho: string;
+  suggestExp: string;
+  suggestEdu: string;
+  suggestProj: string;
+  suggestContact: string;
+  suggestTech: string;
+  errorPrefix: string;
+}
