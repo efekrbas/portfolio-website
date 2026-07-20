@@ -297,13 +297,14 @@
 
 .chatbot-toggle-status {
     position: absolute;
-    bottom: 12px;
-    right: 12px;
-    width: 8px;
-    height: 8px;
+    bottom: 14px;
+    right: 14px;
+    width: 10px;
+    height: 10px;
     background-color: #23a559;
     border-radius: 50%;
     border: 2px solid var(--neutral-surface-strong);
+    box-sizing: border-box;
     z-index: 2;
 }
 
