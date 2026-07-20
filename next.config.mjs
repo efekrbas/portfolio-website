@@ -11,7 +11,6 @@ const nextConfig = {
   transpilePackages: ["next-mdx-remote"],
   images: {
     formats: ["image/avif", "image/webp"],
-    quality: 90,
     remotePatterns: [
       {
         protocol: "https",
