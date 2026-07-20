@@ -295,6 +295,20 @@
     box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
 }
 
+.chatbot-toggle-status {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    width: 10px;
+    height: 10px;
+    background-color: #10b981;
+    border-radius: 50%;
+    border: 2px solid var(--chat-window-bg);
+    box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
+    z-index: 2;
+    animation: chat-status-pulse 2s ease-in-out infinite;
+}
+
 @keyframes chat-status-pulse {
 
     0%,
