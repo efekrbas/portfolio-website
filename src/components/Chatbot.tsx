@@ -360,7 +360,7 @@ export function Chatbot() {
             </AnimatePresence>
 
             <motion.div
-                className="chatbot-bubble"
+                className={`chatbot-bubble ${isOpen ? 'is-open' : ''}`}
                 onClick={() => setIsOpen(!isOpen)}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}

@@ -160,6 +160,12 @@
     transition: all 0.2s ease;
 }
 
+@media (min-width: 481px) {
+    .chatbot-bubble.is-open {
+        display: none !important;
+    }
+}
+
 .chatbot-bubble::before {
     content: '';
     position: absolute;
