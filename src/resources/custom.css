@@ -1,28 +1,28 @@
 :root {
   --accent-color: var(--brand-solid-strong);
   --invert-color: var(--brand-on-solid-strong);
-  --chat-window-bg: var(--neutral-surface-strong);
+  --chat-window-bg: var(--page-background);
   --border-default: var(--neutral-border-medium);
-  --text-primary: var(--neutral-on-surface-strong);
-  --chat-header-bg: var(--neutral-surface-medium);
+  --text-primary: var(--neutral-on-background-strong);
+  --chat-header-bg: var(--page-background);
   --border-subtle: var(--neutral-border-weak);
-  --secondary-text: var(--neutral-on-surface-medium);
+  --secondary-text: var(--neutral-on-background-medium);
   --glass-bg: rgba(255, 255, 255, 0.05);
   --bio-overlay-bg: rgba(0, 0, 0, 0.5);
-  --bio-card-bg: var(--neutral-surface-strong);
+  --bio-card-bg: var(--page-background);
   --bio-card-border: var(--neutral-border-medium);
-  --bio-text: var(--neutral-on-surface-medium);
-  --bio-tag-bg: var(--neutral-surface-weak);
+  --bio-text: var(--neutral-on-background-medium);
+  --bio-tag-bg: var(--neutral-surface-strong);
   --bio-tag-border: var(--neutral-border-weak);
   --scrollbar-thumb: var(--neutral-solid-weak);
   --chat-msg-bot-bg: var(--neutral-surface-medium);
-  --suggestion-bg: var(--neutral-surface-weak);
-  --suggestion-border: var(--neutral-border-weak);
-  --suggestion-text: var(--neutral-on-surface-medium);
-  --pill-hover-bg: var(--neutral-surface-medium);
+  --suggestion-bg: var(--page-background);
+  --suggestion-border: var(--neutral-border-strong);
+  --suggestion-text: var(--neutral-on-background-medium);
+  --pill-hover-bg: var(--neutral-surface-strong);
   --border-hover: var(--neutral-border-strong);
-  --chat-input-bg: var(--neutral-surface-weak);
-  --chat-input-border: var(--neutral-border-medium);
+  --chat-input-bg: var(--page-background);
+  --chat-input-border: var(--neutral-border-strong);
   --chatbot-shadow: rgba(0, 0, 0, 0.2);
   --card-shadow-hover: rgba(0, 0, 0, 0.3);
 }
@@ -214,6 +214,8 @@
     flex-direction: column;
     overflow: hidden;
     box-shadow: 0 20px 50px var(--card-shadow-hover);
+    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(24px);
     z-index: 10000;
 }
 
