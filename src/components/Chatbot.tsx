@@ -369,17 +369,7 @@ export function Chatbot() {
                 {isOpen ? <X size={28} /> : (
                     <>
                         <Bot size={28} />
-                        <span style={{
-                            position: 'absolute',
-                            bottom: '14px',
-                            right: '14px',
-                            width: '10px',
-                            height: '10px',
-                            backgroundColor: '#23a559',
-                            borderRadius: '50%',
-                            border: '2px solid var(--neutral-surface-strong)',
-                            boxSizing: 'border-box'
-                        }}></span>
+                        <span className="chatbot-toggle-status"></span>
                     </>
                 )}
             </motion.div>
