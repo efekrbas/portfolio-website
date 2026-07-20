@@ -375,9 +375,11 @@ export function Chatbot() {
                             right: '14px',
                             width: '10px',
                             height: '10px',
-                            backgroundColor: 'var(--brand-solid-strong)',
+                            backgroundColor: '#10b981',
                             borderRadius: '50%',
-                            border: '2px solid var(--accent-color)'
+                            border: '2px solid var(--chat-window-bg)',
+                            boxShadow: '0 0 6px rgba(16, 185, 129, 0.6)',
+                            zIndex: 2
                         }}></span>
                     </>
                 )}
