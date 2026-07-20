@@ -297,8 +297,8 @@
 
 .chatbot-toggle-status {
     position: absolute;
-    bottom: 14px;
-    right: 14px;
+    bottom: 10px;
+    right: 10px;
     width: 10px;
     height: 10px;
     background-color: #10b981;
