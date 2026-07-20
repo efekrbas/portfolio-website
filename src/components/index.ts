@@ -9,3 +9,4 @@ export { ScrollToHash } from "@/components/ScrollToHash";
 export { ThemeToggle } from "@/components/ThemeToggle";
 export { CustomMDX } from "@/components/mdx";
 export { Chatbot } from "@/components/Chatbot";
+export { ChatbotToggle } from "@/components/ChatbotToggle";

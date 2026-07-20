@@ -10,6 +10,7 @@ import { routes, display } from "@/resources/once-ui.config";
 import { useParams } from "next/navigation";
 import { getDictionary } from "@/resources";
 import { ThemeToggle } from "./ThemeToggle";
+import { ChatbotToggle } from "./ChatbotToggle";
 import styles from "./Header.module.scss";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
@@ -274,6 +275,7 @@ export const Header = () => {
                 <>
                   <Line background="neutral-alpha-medium" vert maxHeight="24" />
                   <ThemeToggle />
+                  <ChatbotToggle />
                 </>
               )}
             </Row>
@@ -325,6 +327,7 @@ export const Header = () => {
         </Link>
         <Row gap="12" vertical="center">
           {display.themeSwitcher && <ThemeToggle />}
+          <ChatbotToggle />
           <AnimatedHamburger isOpen={isMobileMenuOpen} toggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
         </Row>
       </Row>
