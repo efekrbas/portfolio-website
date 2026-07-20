@@ -284,7 +284,7 @@ export function Chatbot() {
                                     <Bot size={22} style={{ color: 'var(--brand-solid-strong)' }} />
                                     {t.header}
                                 </h3>
-                                <button onClick={() => setIsOpen(false)} style={{ background: 'none', border: 'none', color: 'var(--neutral-on-surface-medium)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <button className="chat-header-close-btn" onClick={() => setIsOpen(false)} style={{ background: 'none', border: 'none', color: 'var(--neutral-on-surface-medium)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                     <X size={20} />
                                 </button>
                             </div>
