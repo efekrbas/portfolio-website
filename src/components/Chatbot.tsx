@@ -378,7 +378,7 @@ export function Chatbot() {
                             backgroundColor: '#23a559',
                             borderRadius: '50%',
                             border: '2px solid var(--neutral-surface-strong)',
-                            boxSizing: 'content-box'
+                            boxSizing: 'border-box'
                         }}></span>
                     </>
                 )}
