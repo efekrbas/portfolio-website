@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { IconButton } from "@once-ui-system/core";
+import { ToggleButton } from "@once-ui-system/core";
 import { Bot, BotOff } from "lucide-react";
 import { useParams } from "next/navigation";
 
@@ -34,15 +34,11 @@ export const ChatbotToggle = () => {
   };
 
   return (
-    <IconButton
-      size="m"
-      variant="ghost"
+    <ToggleButton
       onClick={toggleVisibility}
-      tooltip={tooltipText}
-      tooltipPosition="bottom"
-      aria-label={tooltipText}
+      selected={isVisible}
     >
       {isVisible ? <Bot size={20} /> : <BotOff size={20} />}
-    </IconButton>
+    </ToggleButton>
   );
 };

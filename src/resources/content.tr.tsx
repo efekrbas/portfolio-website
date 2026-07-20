@@ -228,11 +228,11 @@ const chatbot: Chatbot = {
   placeholder: "Mesajınızı yazın...",
   typing: "Yazıyor...",
   suggestWho: "Efe kimdir?",
-  suggestExp: "Deneyimleri neler?",
-  suggestEdu: "Eğitimi hakkında bilgi alabilir miyim?",
-  suggestProj: "Projeleri neler?",
-  suggestContact: "Nasıl ulaşabilirim?",
-  suggestTech: "Yetenekleri neler?",
+  suggestExp: "Efe'nin deneyimleri neler?",
+  suggestEdu: "Efe'nin eğitimi hakkında bilgi alabilir miyim?",
+  suggestProj: "Efe'nin projeleri neler?",
+  suggestContact: "Efe'ye nasıl ulaşabilirim?",
+  suggestTech: "Efe'nin yetenekleri neler?",
   errorPrefix: "Hata:",
 };
 
