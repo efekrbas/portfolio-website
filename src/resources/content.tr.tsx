@@ -229,7 +229,7 @@ const chatbot: Chatbot = {
   typing: "Yazıyor...",
   suggestWho: "Efe kimdir?",
   suggestExp: "Deneyimleri neler?",
-  suggestEdu: "Eğitimi nedir?",
+  suggestEdu: "Eğitimi hakkında bilgi alabilir miyim?",
   suggestProj: "Projeleri neler?",
   suggestContact: "Nasıl ulaşabilirim?",
   suggestTech: "Yetenekleri neler?",
