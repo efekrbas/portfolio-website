@@ -111,11 +111,39 @@ const about: About = {
     title: "Deneyim",
     experiences: [
       {
-        company: "Siber0x1",
-        timeframe: `May 2026 - Devam ediyor · ${calculateDuration("2026-05-01")}`,
-        role: "Sosyal Medya Yöneticisi",
+        company: "Medipol Sağlık Grubu",
+        timeframe: `Eyl 2024 - Haz 2025 · ${calculateDuration("2024-09-01", "2025-06-01")}`,
+        role: "Bilgi İşlem Saha Destek Stajyeri",
         achievements: [
-          <>Siber0x1 LinkedIn hesabının yönetilmesinden sorumlu oldum.</>,
+          <>Son kullanıcı desteği verdim.</>,
+          <>Donanım kurulum ve bakım işlemlerini gerçekleştirdim.</>,
+          <>Arıza giderme ve ağ takibi konularında aktif görevler aldım.</>,
+        ],
+        images: [],
+      },
+    ],
+  },
+  volunteering: {
+    display: true,
+    title: "Gönüllülük",
+    experiences: [
+      {
+        company: "Siber Vatan",
+        timeframe: `Eyl 2025 - Devam ediyor · ${calculateDuration("2025-09-01")}`,
+        role: "Siber Güvenlik Öğrencisi",
+        achievements: [
+          <>Genel CTF sınavı sonucunda Bilecik'de ilk 40'a girerek öğrenci olmaya hak kazandım.</>,
+          <>Beyaz Şapkalı Hacker, CTF ve Reverse Engineering Eğitimi aldım.</>,
+          <>Aldığım eğitimlerde web güvenliği, ağ güvenliği, sızma testleri, zararlı yazılım analizi gibi birçok alanda bilgi ve beceri kazandım.</>,
+        ],
+        images: [],
+      },
+      {
+        company: "Hackviser",
+        timeframe: `Şub 2026 - Devam ediyor · ${calculateDuration("2026-02-01")}`,
+        role: "Kampüs Elçisi",
+        achievements: [
+          <>Siber güvenlik alanında gelişmek isteyen kişilere, Hackviser'ı tavsiye ederek öğrenme süreçlerine rehberlik ettim.</>,
         ],
         images: [],
       },
@@ -130,33 +158,11 @@ const about: About = {
         images: [],
       },
       {
-        company: "Hackviser",
-        timeframe: `Şub 2026 - Devam ediyor · ${calculateDuration("2026-02-01")}`,
-        role: "Kampüs Elçisi",
+        company: "Siber0x1",
+        timeframe: `May 2026 - Devam ediyor · ${calculateDuration("2026-05-01")}`,
+        role: "Sosyal Medya Yöneticisi",
         achievements: [
-          <>Siber güvenlik alanında gelişmek isteyen kişilere, Hackviser'ı tavsiye ederek öğrenme süreçlerine rehberlik ettim.</>,
-        ],
-        images: [],
-      },
-      {
-        company: "Siber Vatan",
-        timeframe: `Eyl 2025 - Devam ediyor · ${calculateDuration("2025-09-01")}`,
-        role: "Siber Güvenlik Öğrencisi",
-        achievements: [
-          <>Genel CTF sınavı sonucunda Bilecik'de ilk 40'a girerek öğrenci olmaya hak kazandım.</>,
-          <>Beyaz Şapkalı Hacker, CTF ve Reverse Engineering Eğitimi aldım.</>,
-          <>Aldığım eğitimlerde web güvenliği, ağ güvenliği, sızma testleri, zararlı yazılım analizi gibi birçok alanda bilgi ve beceri kazandım.</>,
-        ],
-        images: [],
-      },
-      {
-        company: "Medipol Sağlık Grubu",
-        timeframe: `Eyl 2024 - Haz 2025 · ${calculateDuration("2024-09-01", "2025-06-01")}`,
-        role: "Bilgi İşlem Saha Destek Stajyeri",
-        achievements: [
-          <>Son kullanıcı desteği verdim.</>,
-          <>Donanım kurulum ve bakım işlemlerini gerçekleştirdim.</>,
-          <>Arıza giderme ve ağ takibi konularında aktif görevler aldım.</>,
+          <>Siber0x1 LinkedIn hesabının yönetilmesinden sorumlu oldum.</>,
         ],
         images: [],
       },

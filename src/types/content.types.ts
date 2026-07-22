@@ -171,6 +171,31 @@ export interface About extends BasePageConfig {
       }>;
     }>;
   };
+  /** Volunteering experience section */
+  volunteering?: {
+    /** Whether to display volunteering experience */
+    display: boolean;
+    /** Title for the volunteering experience section */
+    title: string;
+    /** List of volunteering experiences */
+    experiences: Array<{
+      /** Company/Organization name */
+      company: string;
+      /** Timeframe of volunteering */
+      timeframe: string;
+      /** Role or title */
+      role: string;
+      /** Achievements */
+      achievements: React.ReactNode[];
+      /** Images related to the experience */
+      images?: Array<{
+        src: string;
+        alt: string;
+        width: number;
+        height: number;
+      }>;
+    }>;
+  };
   /** Studies/education section */
   studies: {
     /** Whether to display studies section */
