@@ -110,7 +110,7 @@ export default async function About(props: { params: Promise<{ locale: string }>
             top="64"
             fitHeight
             position="sticky"
-            s={{ position: "relative", style: { top: "auto", paddingTop: "80px" }, align: "center", horizontal: "center" }}
+            s={{ position: "relative", style: { top: "auto", paddingTop: "80px" }, horizontal: "center" }}
             xs={{ style: { top: "auto" } }}
             minWidth="160"
             paddingX="l"
@@ -132,7 +132,7 @@ export default async function About(props: { params: Promise<{ locale: string }>
             minHeight="160"
             vertical="center"
             marginBottom="32"
-            s={{ align: "center", horizontal: "center" }}
+            s={{ horizontal: "center" }}
             style={{ textAlign: "center", userSelect: "none" }}
           >
             {about.calendar.display && (

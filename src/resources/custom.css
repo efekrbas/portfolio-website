@@ -35,6 +35,9 @@
     --chatbot-bubble-bg: #06b6d4;
     --chatbot-bubble-color: #ffffff;
     --chatbot-bubble-shadow: 0 0 20px rgba(6, 182, 212, 0.6), 0 8px 32px var(--chatbot-shadow);
+    --tooltip-bg: rgba(236, 254, 255, 0.9);
+    --tooltip-border: rgba(165, 243, 252, 1);
+    --tooltip-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 [data-theme="dark"] {
@@ -59,6 +62,9 @@
     --chatbot-bubble-bg: #1e3a8a;
     --chatbot-bubble-color: #ffffff;
     --chatbot-bubble-shadow: 0 8px 32px var(--chatbot-shadow);
+    --tooltip-bg: var(--chat-window-bg);
+    --tooltip-border: var(--border-default);
+    --tooltip-shadow: 0 8px 32px var(--chatbot-shadow);
 }
 
 /*
@@ -185,8 +191,8 @@
     position: absolute;
     bottom: 72px;
     right: 0;
-    background: var(--chat-window-bg);
-    border: 1px solid var(--border-default);
+    background: var(--tooltip-bg, var(--chat-window-bg));
+    border: 1px solid var(--tooltip-border, var(--border-default));
     border-radius: 16px;
     padding: 10px 16px;
     font-size: 0.85rem;
@@ -195,7 +201,7 @@
     white-space: nowrap;
     cursor: pointer;
     z-index: 10002;
-    box-shadow: 0 8px 32px var(--chatbot-shadow);
+    box-shadow: var(--tooltip-shadow, 0 8px 32px var(--chatbot-shadow));
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     animation: beepBoopFloat 2s ease-in-out infinite;
@@ -213,9 +219,9 @@
     right: 22px;
     width: 14px;
     height: 14px;
-    background: var(--chat-window-bg);
-    border-right: 1px solid var(--border-default);
-    border-bottom: 1px solid var(--border-default);
+    background: var(--tooltip-bg, var(--chat-window-bg));
+    border-right: 1px solid var(--tooltip-border, var(--border-default));
+    border-bottom: 1px solid var(--tooltip-border, var(--border-default));
     transform: rotate(45deg);
     border-radius: 0 0 4px 0;
 }
