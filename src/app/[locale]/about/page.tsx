@@ -221,7 +221,7 @@ export default async function About(props: { params: Promise<{ locale: string }>
           </Column>
 
           {about.intro.display && (
-            <Column textVariant="body-default-m" align="start" fillWidth gap="m" marginBottom="104" s={{ paddingX: "20" }} style={{ textAlign: "left" }}>
+            <Column textVariant="body-default-m" align="start" fillWidth gap="m" marginBottom="104" s={{ paddingLeft: "20", paddingRight: "20" }} style={{ textAlign: "left" }}>
               {about.intro.description}
             </Column>
           )}
