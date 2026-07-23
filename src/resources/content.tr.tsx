@@ -128,29 +128,16 @@ const about: About = {
     title: "Gönüllülük",
     experiences: [
       {
-        company: "Siber Vatan",
-        timeframe: `Eyl 2025 - Devam ediyor · ${calculateDuration("2025-09-01")}`,
-        role: "Siber Güvenlik Öğrencisi",
-        achievements: [
-          <>Genel CTF sınavı sonucunda Bilecik'de ilk 40'a girerek öğrenci olmaya hak kazandım.</>,
-          <>Beyaz Şapkalı Hacker, CTF ve Reverse Engineering Eğitimi aldım.</>,
-          <>Aldığım eğitimlerde web güvenliği, ağ güvenliği, sızma testleri, zararlı yazılım analizi gibi birçok alanda bilgi ve beceri kazandım.</>,
-        ],
-        images: [],
-      },
-      {
-        company: "Hackviser",
-        timeframe: `Şub 2026 - Devam ediyor · ${calculateDuration("2026-02-01")}`,
-        role: "Kampüs Elçisi",
-        achievements: [
-          <>Siber güvenlik alanında gelişmek isteyen kişilere, Hackviser'ı tavsiye ederek öğrenme süreçlerine rehberlik ettim.</>,
-        ],
+        company: "Gallipolixyz",
+        timeframe: `Tem 2026 - Devam ediyor · ${calculateDuration("2026-07-01")}`,
+        role: "Yönetim Ekibi Üyesi",
+        achievements: [],
         images: [],
       },
       {
         company: "Kariyer Pusulan",
         timeframe: `May 2026 - Devam ediyor · ${calculateDuration("2026-05-01")}`,
-        role: "Teknik Ekip Üyesi",
+        role: "Yönetim Ekibi Üyesi",
         achievements: [
           <>Teknik hata ve eksikliklerin tespit edilmesi, raporlanması ve çözüm süreçlerinin yönetilmesinde aktif görev alarak topluluğun teknik altyapısına katkıda bulundum.</>,
           <>Topluluk yönetimi ve içerik paylaşımı süreçlerini yürüttüm.</>,
@@ -162,15 +149,28 @@ const about: About = {
         timeframe: `May 2026 - Devam ediyor · ${calculateDuration("2026-05-01")}`,
         role: "Sosyal Medya Yöneticisi",
         achievements: [
-          <>Siber0x1 LinkedIn hesabının yönetilmesinden sorumlu oldum.</>,
+          <>Siber0x1 LinkedIn hesabının yönetilmesinden sorumluyum.</>,
         ],
         images: [],
       },
       {
-        company: "Gallipolixyz",
-        timeframe: `Tem 2026 - Devam ediyor · ${calculateDuration("2026-07-01")}`,
-        role: "Ekip Üyesi",
-        achievements: [],
+        company: "Hackviser",
+        timeframe: `Şub 2026 - Devam ediyor · ${calculateDuration("2026-02-01")}`,
+        role: "Kampüs Elçisi",
+        achievements: [
+          <>Siber güvenlik alanında gelişmek isteyen kişilere, Hackviser'ı tavsiye ederek öğrenme süreçlerine rehberlik ediyorum.</>,
+        ],
+        images: [],
+      },
+      {
+        company: "Siber Vatan",
+        timeframe: `Eyl 2025 - Devam ediyor · ${calculateDuration("2025-09-01")}`,
+        role: "Siber Güvenlik Öğrencisi",
+        achievements: [
+          <>Genel CTF sınavı sonucunda Bilecik'de ilk 40'a girerek öğrenci olmaya hak kazandım.</>,
+          <>Beyaz Şapkalı Hacker, CTF ve Reverse Engineering Eğitimi aldım.</>,
+          <>Aldığım eğitimlerde web güvenliği, ağ güvenliği, sızma testleri, zararlı yazılım analizi gibi birçok alanda bilgi ve beceri kazandım.</>,
+        ],
         images: [],
       },
     ],

@@ -111,28 +111,45 @@ const about: About = {
     title: "Experience",
     experiences: [
       {
-        company: "Siber0x1",
-        timeframe: `May 2026 - Present · ${calculateDuration("2026-05-01")}`,
-        role: "Social Media Manager",
+        company: "Medipol Healthcare Group",
+        timeframe: `Sep 2024 - Jun 2025 · ${calculateDuration("2024-09-01", "2025-06-01")}`,
+        role: "IT Field Support Intern",
         achievements: [
-          <>Responsible for managing the Siber0x1 LinkedIn account.</>,
+          <>Provided end-user support.</>,
+          <>Performed hardware installation and maintenance.</>,
+          <>Actively participated in troubleshooting and network monitoring.</>,
         ],
         images: [],
       },
+    ],
+  },
+  volunteering: {
+    display: true,
+    title: "Volunteering",
+    experiences: [
       {
         company: "Gallipolixyz",
         timeframe: `Jul 2026 - Present · ${calculateDuration("2026-07-01")}`,
-        role: "Team Member",
+        role: "Core Team Member",
         achievements: [],
         images: [],
       },
       {
         company: "Kariyer Pusulan",
         timeframe: `May 2026 - Present · ${calculateDuration("2026-05-01")}`,
-        role: "Technical Team Member",
+        role: "Core Team Member",
         achievements: [
           <>Contributed to the technical infrastructure of the community by actively participating in the detection, reporting, and resolution processes of technical errors and deficiencies.</>,
           <>Managed community management and content sharing processes.</>,
+        ],
+        images: [],
+      },
+      {
+        company: "Siber0x1",
+        timeframe: `May 2026 - Present · ${calculateDuration("2026-05-01")}`,
+        role: "Social Media Manager",
+        achievements: [
+          <>Responsible for managing the Siber0x1 LinkedIn account.</>,
         ],
         images: [],
       },
@@ -153,17 +170,6 @@ const about: About = {
           <>Qualified as a student by ranking in the top 40 in Bilecik in the general CTF exam.</>,
           <>Received White Hat Hacker, CTF, and Reverse Engineering Training.</>,
           <>Gained knowledge and skills in many areas such as web security, network security, penetration testing, and malware analysis.</>,
-        ],
-        images: [],
-      },
-      {
-        company: "Medipol Healthcare Group",
-        timeframe: `Sep 2024 - Jun 2025 · ${calculateDuration("2024-09-01", "2025-06-01")}`,
-        role: "IT Field Support Intern",
-        achievements: [
-          <>Provided end-user support.</>,
-          <>Performed hardware installation and maintenance.</>,
-          <>Actively participated in troubleshooting and network monitoring.</>,
         ],
         images: [],
       },
