@@ -3,6 +3,7 @@ import { Mailchimp } from "@/components";
 import { Posts } from "@/components/blog/Posts";
 import { baseURL } from "@/resources";
 import { getDictionary } from "@/resources";
+import { getPosts } from "@/utils/utils";
 
 export async function generateMetadata(props: { params: Promise<{ locale: string }> }) {
   const params = await props.params;
@@ -19,6 +20,8 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
 export default async function Blog(props: { params: Promise<{ locale: string }> }) {
   const params = await props.params;
   const { blog, person } = getDictionary(params.locale);
+  const allPosts = getPosts(["src", "app", "[locale]", "blog", "posts"]);
+
   return (
     <Column maxWidth="m" paddingTop="24">
       <Schema
@@ -41,10 +44,14 @@ export default async function Blog(props: { params: Promise<{ locale: string }> 
         <Posts range={[1, 1]} thumbnail />
         <Posts range={[2, 3]} columns="2" thumbnail direction="column" />
         <Mailchimp marginBottom="l" />
-        <Heading as="h2" variant="heading-strong-xl" marginLeft="l">
-          {params.locale === "tr" ? "Önceki Yazılar" : "Earlier posts"}
-        </Heading>
-        <Posts range={[4]} columns="2" />
+        {allPosts.length > 3 && (
+          <>
+            <Heading as="h2" variant="heading-strong-xl" marginLeft="l">
+              {params.locale === "tr" ? "Önceki Yazılar" : "Earlier posts"}
+            </Heading>
+            <Posts range={[4]} columns="2" />
+          </>
+        )}
       </Column>
     </Column>
   );

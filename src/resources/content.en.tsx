@@ -120,6 +120,13 @@ const about: About = {
         images: [],
       },
       {
+        company: "Gallipolixyz",
+        timeframe: `Jul 2026 - Present · ${calculateDuration("2026-07-01")}`,
+        role: "Team Member",
+        achievements: [],
+        images: [],
+      },
+      {
         company: "Kariyer Pusulan",
         timeframe: `May 2026 - Present · ${calculateDuration("2026-05-01")}`,
         role: "Technical Team Member",

@@ -166,6 +166,13 @@ const about: About = {
         ],
         images: [],
       },
+      {
+        company: "Gallipolixyz",
+        timeframe: `Tem 2026 - Devam ediyor · ${calculateDuration("2026-07-01")}`,
+        role: "Ekip Üyesi",
+        achievements: [],
+        images: [],
+      },
     ],
   },
   studies: {

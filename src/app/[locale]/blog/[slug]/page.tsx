@@ -66,7 +66,8 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
     ? routeParams.slug.join("/")
     : routeParams.slug || "";
 
-  let post = getPosts(["src", "app", "[locale]", "blog", "posts"]).find((post) => post.slug === slugPath);
+  const allPosts = getPosts(["src", "app", "[locale]", "blog", "posts"]);
+  let post = allPosts.find((post) => post.slug === slugPath);
 
   if (!post) {
     notFound();
@@ -79,7 +80,6 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
 
   return (
     <Row fillWidth>
-      <Row maxWidth={12} m={{ hide: true }} />
       <Row fillWidth horizontal="center">
         <Column as="section" maxWidth="m" horizontal="center" gap="l" paddingTop="24">
           <Schema
@@ -149,27 +149,19 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             url={`${baseURL}/${routeParams.locale}${blog.path}/${post.slug}`} 
           />
 
-          <Column fillWidth gap="40" horizontal="center" marginTop="40">
-            <Line maxWidth="40" />
-            <Text as="h2" id="recent-posts" variant="heading-strong-xl" marginBottom="24">
-              {routeParams.locale === "tr" ? "Son yazılar" : "Recent posts"}
-            </Text>
-            <Posts exclude={[post.slug]} range={[1, 2]} columns="2" thumbnail direction="column" />
-          </Column>
+          {allPosts.length > 1 && (
+            <Column fillWidth gap="40" horizontal="center" marginTop="40">
+              <Line maxWidth="40" />
+              <Text as="h2" id="recent-posts" variant="heading-strong-xl" marginBottom="24">
+                {routeParams.locale === "tr" ? "Son yazılar" : "Recent posts"}
+              </Text>
+              <Posts exclude={[post.slug]} range={[1, 2]} columns="2" thumbnail direction="column" />
+            </Column>
+          )}
           <ScrollToHash />
         </Column>
       </Row>
-      <Column
-        maxWidth={12}
-        paddingLeft="40"
-        fitHeight
-        position="sticky"
-        top="80"
-        gap="16"
-        m={{ hide: true }}
-      >
-        <HeadingNav fitHeight />
-      </Column>
+
     </Row>
   );
 }
