@@ -50,6 +50,7 @@ export default async function RootLayout(props: Readonly<{
       )}
     >
       <head>
+        <meta name="google-site-verification" content="E47bLbGHUsDuMohzuH6zgFuIuyZYUiIFF-RGO04DPn8" />
         <script
           id="theme-init"
           dangerouslySetInnerHTML={{
