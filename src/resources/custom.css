@@ -61,7 +61,7 @@
     --chat-btn-color: #E0E0E0;
     --chatbot-bubble-bg: #1e3a8a;
     --chatbot-bubble-color: #ffffff;
-    --chatbot-bubble-shadow: 0 8px 32px var(--chatbot-shadow);
+    --chatbot-bubble-shadow: 0 0 24px rgba(59, 130, 246, 0.8), 0 8px 32px var(--chatbot-shadow);
     --tooltip-bg: var(--chat-window-bg);
     --tooltip-border: var(--border-default);
     --tooltip-shadow: 0 8px 32px var(--chatbot-shadow);
