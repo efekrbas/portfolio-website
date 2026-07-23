@@ -127,6 +127,14 @@ export const Header = () => {
 
   const handleMobileNav = (e: React.MouseEvent<any>, href: string) => {
     e.preventDefault();
+    e.stopPropagation();
+    
+    // Prevent ghost clicks during animation and navigation
+    document.body.style.pointerEvents = "none";
+    setTimeout(() => {
+      document.body.style.pointerEvents = "auto";
+    }, 600);
+
     setIsMobileMenuOpen(false);
     setTimeout(() => {
       router.push(href);
