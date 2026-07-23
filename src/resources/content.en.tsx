@@ -115,9 +115,9 @@ const about: About = {
         timeframe: `Sep 2024 - Jun 2025 · ${calculateDuration("2024-09-01", "2025-06-01")}`,
         role: "IT Field Support Intern",
         achievements: [
-          <>Provided end-user support.</>,
-          <>Performed hardware installation and maintenance.</>,
-          <>Actively participated in troubleshooting and network monitoring.</>,
+          <>Providing technical (End-User) support for hardware and software issues arising on the user side.</>,
+          <>Carrying out the installation, maintenance, configuration, and update processes of system and hardware components.</>,
+          <>Taking an active role in tracking network infrastructure, fault detection, and troubleshooting operations.</>,
         ],
         images: [],
       },
@@ -131,7 +131,9 @@ const about: About = {
         company: "Gallipolixyz",
         timeframe: `Jul 2026 - Present · ${calculateDuration("2026-07-01")}`,
         role: "Core Team Member",
-        achievements: [],
+        achievements: [
+          <>Producing cybersecurity and technology-oriented technical blog contents within the community.</>,
+        ],
         images: [],
       },
       {
@@ -139,8 +141,8 @@ const about: About = {
         timeframe: `May 2026 - Present · ${calculateDuration("2026-05-01")}`,
         role: "Core Team Member",
         achievements: [
-          <>Contributed to the technical infrastructure of the community by actively participating in the detection, reporting, and resolution processes of technical errors and deficiencies.</>,
-          <>Managed community management and content sharing processes.</>,
+          <>Detecting, reporting, and managing the resolution processes of technical errors and deficiencies.</>,
+          <>Carrying out community management, interaction, and content sharing processes.</>,
         ],
         images: [],
       },
@@ -149,7 +151,7 @@ const about: About = {
         timeframe: `May 2026 - Present · ${calculateDuration("2026-05-01")}`,
         role: "Social Media Manager",
         achievements: [
-          <>Responsible for managing the Siber0x1 LinkedIn account.</>,
+          <>Managing the Siber0x1 LinkedIn social media account and carrying out content processes.</>,
         ],
         images: [],
       },
@@ -158,7 +160,7 @@ const about: About = {
         timeframe: `Feb 2026 - Present · ${calculateDuration("2026-02-01")}`,
         role: "Campus Ambassador",
         achievements: [
-          <>Guided the learning processes of individuals who want to develop in the field of cybersecurity by recommending Hackviser.</>,
+          <>Guiding the learning processes of individuals who want to develop in the field of cybersecurity by recommending Hackviser.</>,
         ],
         images: [],
       },
@@ -167,9 +169,9 @@ const about: About = {
         timeframe: `Sep 2025 - Present · ${calculateDuration("2025-09-01")}`,
         role: "Cyber Security Student",
         achievements: [
-          <>Qualified as a student by ranking in the top 40 in Bilecik in the general CTF exam.</>,
-          <>Received White Hat Hacker, CTF, and Reverse Engineering Training.</>,
-          <>Gained knowledge and skills in many areas such as web security, network security, penetration testing, and malware analysis.</>,
+          <>Qualifying as a program student by ranking in the top 40 in Bilecik as a result of the general CTF exam.</>,
+          <>Successfully completing White Hat Hacker, CTF, and Reverse Engineering trainings.</>,
+          <>Gaining practical knowledge and competence in areas such as web security, network security, penetration testing, and malware analysis.</>,
         ],
         images: [],
       },

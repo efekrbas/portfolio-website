@@ -115,9 +115,9 @@ const about: About = {
         timeframe: `Eyl 2024 - Haz 2025 · ${calculateDuration("2024-09-01", "2025-06-01")}`,
         role: "Bilgi İşlem Saha Destek Stajyeri",
         achievements: [
-          <>Son kullanıcı desteği verdim.</>,
-          <>Donanım kurulum ve bakım işlemlerini gerçekleştirdim.</>,
-          <>Arıza giderme ve ağ takibi konularında aktif görevler aldım.</>,
+          <>Kullanıcı tarafında ortaya çıkan donanımsal ve yazılımsal sorunlara yönelik teknik (End-User) destek sunulması.</>,
+          <>Sistem ve donanım bileşenlerinin kurulum, bakım, yapılandırma ve güncelleme süreçlerinin yürütülmesi.</>,
+          <>Ağ altyapısının takibi, arıza tespiti ve sorun giderme (troubleshooting) operasyonlarında aktif görev alınması.</>,
         ],
         images: [],
       },
@@ -131,7 +131,9 @@ const about: About = {
         company: "Gallipolixyz",
         timeframe: `Tem 2026 - Devam ediyor · ${calculateDuration("2026-07-01")}`,
         role: "Yönetim Ekibi Üyesi",
-        achievements: [],
+        achievements: [
+          <>Topluluk bünyesinde siber güvenlik ve teknoloji odaklı teknik blog içeriklerinin üretilmesi.</>,
+        ],
         images: [],
       },
       {
@@ -139,8 +141,8 @@ const about: About = {
         timeframe: `May 2026 - Devam ediyor · ${calculateDuration("2026-05-01")}`,
         role: "Yönetim Ekibi Üyesi",
         achievements: [
-          <>Teknik hata ve eksikliklerin tespit edilmesi, raporlanması ve çözüm süreçlerinin yönetilmesinde aktif görev alarak topluluğun teknik altyapısına katkıda bulundum.</>,
-          <>Topluluk yönetimi ve içerik paylaşımı süreçlerini yürüttüm.</>,
+          <>Teknik hata ve eksikliklerin tespit edilmesi, raporlanması ve çözüm süreçlerinin yönetilmesi.</>,
+          <>Topluluk yönetimi, etkileşim ve içerik paylaşımı süreçlerinin yürütülmesi.</>,
         ],
         images: [],
       },
@@ -149,7 +151,7 @@ const about: About = {
         timeframe: `May 2026 - Devam ediyor · ${calculateDuration("2026-05-01")}`,
         role: "Sosyal Medya Yöneticisi",
         achievements: [
-          <>Siber0x1 LinkedIn hesabının yönetilmesinden sorumluyum.</>,
+          <>Siber0x1 LinkedIn sosyal medya hesabının yönetimi ve içerik süreçlerinin yürütülmesi.</>,
         ],
         images: [],
       },
@@ -158,7 +160,7 @@ const about: About = {
         timeframe: `Şub 2026 - Devam ediyor · ${calculateDuration("2026-02-01")}`,
         role: "Kampüs Elçisi",
         achievements: [
-          <>Siber güvenlik alanında gelişmek isteyen kişilere, Hackviser'ı tavsiye ederek öğrenme süreçlerine rehberlik ediyorum.</>,
+          <>Siber güvenlik alanında gelişmek isteyen kişilere, Hackviser'ı tavsiye ederek öğrenme süreçlerine rehberlik edilmesi.</>,
         ],
         images: [],
       },
@@ -167,9 +169,9 @@ const about: About = {
         timeframe: `Eyl 2025 - Devam ediyor · ${calculateDuration("2025-09-01")}`,
         role: "Siber Güvenlik Öğrencisi",
         achievements: [
-          <>Genel CTF sınavı sonucunda Bilecik'de ilk 40'a girerek öğrenci olmaya hak kazandım.</>,
-          <>Beyaz Şapkalı Hacker, CTF ve Reverse Engineering Eğitimi aldım.</>,
-          <>Aldığım eğitimlerde web güvenliği, ağ güvenliği, sızma testleri, zararlı yazılım analizi gibi birçok alanda bilgi ve beceri kazandım.</>,
+          <>Genel CTF sınavı sonucunda Bilecik genelinde ilk 40'a girerek program öğrencisi olmaya hak kazanılması.</>,
+          <>Beyaz Şapkalı Hacker, CTF ve Reverse Engineering eğitimlerinin başarıyla tamamlanması.</>,
+          <>Web güvenliği, ağ güvenliği, sızma testleri (penetration testing) ve zararlı yazılım analizi alanlarında pratik bilgi ve yetkinlik kazanılması.</>,
         ],
         images: [],
       },
