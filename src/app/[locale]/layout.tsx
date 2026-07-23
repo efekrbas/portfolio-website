@@ -51,6 +51,10 @@ export default async function RootLayout(props: Readonly<{
     >
       <head>
         <meta name="google-site-verification" content="E47bLbGHUsDuMohzuH6zgFuIuyZYUiIFF-RGO04DPn8" />
+        <link rel="icon" href="/images/favicon.ico?v=2" type="image/x-icon" />
+        <link rel="shortcut icon" href="/images/favicon.ico?v=2" type="image/x-icon" />
+        <link rel="icon" type="image/svg+xml" href="/images/favicon.svg?v=2" />
+        <link rel="apple-touch-icon" href="/images/favicon.svg?v=2" />
         <script
           id="theme-init"
           dangerouslySetInnerHTML={{
