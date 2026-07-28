@@ -19,6 +19,8 @@ export const AnimatedCard: React.FC<AnimatedCardProps> = ({ children, className,
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7deg", "-7deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7deg", "7deg"]);
 
+  const [isHovered, setIsHovered] = React.useState(false);
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
@@ -31,7 +33,12 @@ export const AnimatedCard: React.FC<AnimatedCardProps> = ({ children, className,
     y.set(yPct);
   };
 
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
   const handleMouseLeave = () => {
+    setIsHovered(false);
     x.set(0);
     y.set(0);
   };
@@ -39,6 +46,7 @@ export const AnimatedCard: React.FC<AnimatedCardProps> = ({ children, className,
   return (
     <motion.div
       onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={className}
       style={{
@@ -68,8 +76,10 @@ export const AnimatedCard: React.FC<AnimatedCardProps> = ({ children, className,
           background: "radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%)",
           filter: "blur(20px)",
           zIndex: -1,
-          opacity: useTransform(x, [-0.5, 0, 0.5], [0, 0.6, 0])
         }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isHovered ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
       />
     </motion.div>
   );

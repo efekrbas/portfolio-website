@@ -14,6 +14,8 @@ const PRButton = ({ href, children }: { href: string, children: React.ReactNode 
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
 
+  const [isHovered, setIsHovered] = React.useState(false);
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
@@ -26,7 +28,12 @@ const PRButton = ({ href, children }: { href: string, children: React.ReactNode 
     y.set(yPct);
   };
 
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
   const handleMouseLeave = () => {
+    setIsHovered(false);
     x.set(0);
     y.set(0);
   };
@@ -34,6 +41,7 @@ const PRButton = ({ href, children }: { href: string, children: React.ReactNode 
   return (
     <motion.div
       onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{
         rotateX,
@@ -75,8 +83,10 @@ const PRButton = ({ href, children }: { href: string, children: React.ReactNode 
           background: "radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, transparent 70%)",
           filter: "blur(15px)",
           zIndex: -1,
-          opacity: useTransform(x, [-0.5, 0, 0.5], [0.3, 0.5, 0.3])
         }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isHovered ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
       />
     </motion.div>
   );
