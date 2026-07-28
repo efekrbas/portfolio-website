@@ -10,3 +10,6 @@ export { ThemeToggle } from "@/components/ThemeToggle";
 export { CustomMDX } from "@/components/mdx";
 export { Chatbot } from "@/components/Chatbot";
 export { ChatbotToggle } from "@/components/ChatbotToggle";
+export { AnimatedCard } from "@/components/AnimatedCard";
+export { AnimatedHover } from "@/components/AnimatedHover";
+export { ScrollReveal } from "@/components/ScrollReveal";

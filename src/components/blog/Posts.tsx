@@ -1,6 +1,7 @@
 import { getPosts } from "@/utils/utils";
 import { Grid } from "@once-ui-system/core";
 import Post from "./Post";
+import { AnimatedCard } from "@/components";
 
 interface PostsProps {
   range?: [number] | [number, number];
@@ -37,7 +38,9 @@ export function Posts({
       {displayedBlogs.length > 0 && (
         <Grid columns={columns} s={{ columns: 1 }} fillWidth marginBottom="40" gap="16">
           {displayedBlogs.map((post) => (
-            <Post key={post.slug} post={post} thumbnail={thumbnail} direction={direction} />
+            <AnimatedCard key={post.slug}>
+              <Post post={post} thumbnail={thumbnail} direction={direction} />
+            </AnimatedCard>
           ))}
         </Grid>
       )}

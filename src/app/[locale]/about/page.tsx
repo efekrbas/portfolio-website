@@ -12,6 +12,7 @@ import {
   Schema,
   Row,
 } from "@once-ui-system/core";
+import { ScrollReveal, AnimatedHover } from "@/components";
 import { baseURL } from "@/resources";
 import { getDictionary } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
@@ -232,53 +233,57 @@ export default async function About(props: { params: Promise<{ locale: string }>
                 {about.work.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
-                {about.work.experiences.map((experience, index) => (
-                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    <Text id={experience.company} variant="heading-strong-l" marginBottom="2">
-                      {experience.company}
-                    </Text>
-                    <Text variant="heading-default-xs" style={{ color: "#a1a1aa" }} marginBottom="4">
-                      {experience.timeframe}
-                    </Text>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
-                      {experience.role}
-                    </Text>
-                    <Column as="ul" gap="16">
-                      {experience.achievements.map(
-                        (achievement: React.ReactNode, index: number) => (
-                          <Text
-                            as="li"
-                            variant="body-default-m"
-                            key={`${experience.company}-${index}`}
-                          >
-                            {achievement}
-                          </Text>
-                        ),
+                <ScrollReveal stagger style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+                  {about.work.experiences.map((experience, index) => (
+                    <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
+                      <Text id={experience.company} variant="heading-strong-l" marginBottom="2">
+                        {experience.company}
+                      </Text>
+                      <Text variant="heading-default-xs" style={{ color: "#a1a1aa" }} marginBottom="4">
+                        {experience.timeframe}
+                      </Text>
+                      <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
+                        {experience.role}
+                      </Text>
+                      <Column as="ul" gap="16">
+                        {experience.achievements.map(
+                          (achievement: React.ReactNode, index: number) => (
+                            <Text
+                              as="li"
+                              variant="body-default-m"
+                              key={`${experience.company}-${index}`}
+                            >
+                              {achievement}
+                            </Text>
+                          ),
+                        )}
+                      </Column>
+                      {experience.images && experience.images.length > 0 && (
+                        <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
+                          {experience.images.map((image, index) => (
+                            <Row
+                              key={index}
+                              border="neutral-medium"
+                              radius="m"
+                              minWidth={image.width}
+                              height={image.height}
+                            >
+                              <AnimatedHover>
+                                <Media
+                                  enlarge
+                                  radius="m"
+                                  sizes={image.width.toString()}
+                                  alt={image.alt}
+                                  src={image.src}
+                                />
+                              </AnimatedHover>
+                            </Row>
+                          ))}
+                        </Row>
                       )}
                     </Column>
-                    {experience.images && experience.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
-                        {experience.images.map((image, index) => (
-                          <Row
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
-                              radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
-                        ))}
-                      </Row>
-                    )}
-                  </Column>
-                ))}
+                  ))}
+                </ScrollReveal>
               </Column>
             </>
           )}
@@ -371,46 +376,52 @@ export default async function About(props: { params: Promise<{ locale: string }>
                 {about.technical.title}
               </Heading>
               <Column fillWidth gap="l">
-                {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
-                    <Text id={skill.title} variant="heading-strong-l">
-                      {skill.title}
-                    </Text>
-                    <Text variant="body-default-m" onBackground="neutral-weak">
-                      {skill.description}
-                    </Text>
-                    {skill.tags && skill.tags.length > 0 && (
-                      <Row wrap gap="8" paddingTop="8">
-                        {skill.tags.map((tag, tagIndex) => (
-                          <Tag key={`${skill.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
-                            {tag.name}
-                          </Tag>
-                        ))}
-                      </Row>
-                    )}
-                    {skill.images && skill.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" gap="12" wrap>
-                        {skill.images.map((image, index) => (
-                          <Row
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
+                <ScrollReveal stagger style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+                  {about.technical.skills.map((skill, index) => (
+                    <Column key={`${skill}-${index}`} fillWidth gap="4">
+                      <Text id={skill.title} variant="heading-strong-l">
+                        {skill.title}
+                      </Text>
+                      <Text variant="body-default-m" onBackground="neutral-weak">
+                        {skill.description}
+                      </Text>
+                      {skill.tags && skill.tags.length > 0 && (
+                        <Row wrap gap="8" paddingTop="8">
+                          {skill.tags.map((tag, tagIndex) => (
+                            <AnimatedHover key={`${skill.title}-${tagIndex}`}>
+                              <Tag size="l" prefixIcon={tag.icon}>
+                                {tag.name}
+                              </Tag>
+                            </AnimatedHover>
+                          ))}
+                        </Row>
+                      )}
+                      {skill.images && skill.images.length > 0 && (
+                        <Row fillWidth paddingTop="m" gap="12" wrap>
+                          {skill.images.map((image, index) => (
+                            <Row
+                              key={index}
+                              border="neutral-medium"
                               radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
-                        ))}
-                      </Row>
-                    )}
-                  </Column>
-                ))}
+                              minWidth={image.width}
+                              height={image.height}
+                            >
+                              <AnimatedHover>
+                                <Media
+                                  enlarge
+                                  radius="m"
+                                  sizes={image.width.toString()}
+                                  alt={image.alt}
+                                  src={image.src}
+                                />
+                              </AnimatedHover>
+                            </Row>
+                          ))}
+                        </Row>
+                      )}
+                    </Column>
+                  ))}
+                </ScrollReveal>
               </Column>
             </>
           )}

@@ -5,8 +5,14 @@ Welcome to the source code for my personal portfolio website.
 ## About Me
 I'm Efe Kırbaş, a Software Developer & Penetration Tester based in Istanbul, Turkey. This website serves as my digital resume, showcasing my projects, professional experience, and technical blog posts.
 
+## Features
+- **3D Interactive UI:** Built with Framer Motion to provide a deeply engaging 3D tilt and glow experience across project cards, buttons, and open source contributions.
+- **Dynamic Animations:** Staggered scroll reveals and smooth global page transitions.
+- **Open Source Showcase:** A dedicated section highlighting open source contributions and pull requests.
+
 ## Tech Stack
-- **Framework:** [Next.js](https://nextjs.org)
+- **Framework:** [Next.js](https://nextjs.org) (App Router)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
 - **Styling:** [Once UI](https://once-ui.com) & SCSS
 - **Content:** MDX
 - **Deployment:** Vercel

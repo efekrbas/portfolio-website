@@ -13,7 +13,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, routes } from "@/resources";
 import { getDictionary } from "@/resources";
-import { Mailchimp } from "@/components";
+import { Mailchimp, AnimatedHover } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
 
@@ -82,27 +82,29 @@ export default async function Home(props: { params: Promise<{ locale: string }> 
             </Text>
           </RevealFx>
           <RevealFx paddingTop="12" delay={0.4} horizontal="center" paddingLeft="12">
-            <Button
-              id="about"
-              data-border="rounded"
-              href={about.path}
-              variant="secondary"
-              size="m"
-              weight="default"
-              arrowIcon
-            >
-              <Row gap="8" vertical="center" paddingRight="4">
-                {about.avatar.display && (
-                  <Avatar
-                    marginRight="8"
-                    style={{ marginLeft: "-0.75rem" }}
-                    src={person.avatar}
-                    size="m"
-                  />
-                )}
-                {about.title}
-              </Row>
-            </Button>
+            <AnimatedHover>
+              <Button
+                id="about"
+                data-border="rounded"
+                href={about.path}
+                variant="secondary"
+                size="m"
+                weight="default"
+                arrowIcon
+              >
+                <Row gap="8" vertical="center" paddingRight="4">
+                  {about.avatar.display && (
+                    <Avatar
+                      marginRight="8"
+                      style={{ marginLeft: "-0.75rem" }}
+                      src={person.avatar}
+                      size="m"
+                    />
+                  )}
+                  {about.title}
+                </Row>
+              </Button>
+            </AnimatedHover>
           </RevealFx>
         </Column>
       </Column>
