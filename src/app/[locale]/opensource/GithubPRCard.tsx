@@ -62,15 +62,16 @@ export const GithubPRCard: React.FC<GithubPRCardProps> = ({
     <motion.div
       whileHover={{ y: -5 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      style={{ height: "100%", display: "flex", flexDirection: "column" }}
     >
-      <SmartLink href={href} style={{ textDecoration: "none" }}>
+      <SmartLink href={href} style={{ textDecoration: "none", height: "100%", display: "flex", flexDirection: "column", flex: 1 }}>
         <Column
           background="surface"
           border="neutral-medium"
           radius="l"
           style={{
             width: "380px",
-            height: "100%",
+            height: "320px",
             overflow: "hidden",
             position: "relative",
             flexShrink: 0
