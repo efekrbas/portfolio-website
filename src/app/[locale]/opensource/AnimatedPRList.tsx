@@ -67,8 +67,12 @@ export const AnimatedPRList = () => {
     <div 
       style={{ 
         overflow: "hidden", 
-        width: "100%",
-        maxWidth: "100vw",
+        width: "100vw",
+        position: "relative",
+        left: "50%",
+        right: "50%",
+        marginLeft: "-50vw",
+        marginRight: "-50vw",
         padding: "40px 0"
       }}
     >
