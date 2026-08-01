@@ -171,7 +171,7 @@ export default async function About(props: { params: Promise<{ locale: string }>
               </Row>
             )}
 
-            <Heading className={styles.textAlign} variant="display-strong-xl" s={{ style: { textAlign: "center" } }} marginBottom="8">
+            <Heading className={styles.textAlign} variant="display-strong-xl" marginBottom="8">
               {person.name}
             </Heading>
             <Text
@@ -179,7 +179,6 @@ export default async function About(props: { params: Promise<{ locale: string }>
               variant="heading-default-xl"
               onBackground="neutral-medium"
               paddingBottom="32"
-              s={{ style: { textAlign: "center" } }}
             >
               {person.role}
             </Text>
