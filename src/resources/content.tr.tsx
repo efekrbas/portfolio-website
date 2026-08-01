@@ -60,7 +60,7 @@ const home: Home = {
   label: "Ana Sayfa",
   title: `${person.name} - Portfolyo`,
   description: `${person.role} olarak çalışmalarımı paylaştığım portfolyo sitem.`,
-  headline: <>Siber Güvenlik ve Yazılım Geliştirme Tutkunu</>,
+  headline: <>Yazılım ve siber güvenlik arasında köprüler kuruyorum.</>,
   featured: {
     display: false,
     title: (

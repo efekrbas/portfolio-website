@@ -60,7 +60,7 @@ const home: Home = {
   label: "Home",
   title: `${person.name} - Portfolio`,
   description: `Portfolio website where I share my work as a ${person.role}.`,
-  headline: <>Cybersecurity and Software Development Enthusiast</>,
+  headline: <>Bridging the gap between software and cybersecurity.</>,
   featured: {
     display: false,
     title: (
