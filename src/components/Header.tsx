@@ -326,6 +326,7 @@ export const Header = () => {
         paddingY="12"
         horizontal="between"
         vertical="center"
+        background="surface"
         hide
         m={{ hide: false }}
         s={{ hide: false }}
