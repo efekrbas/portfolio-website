@@ -10,7 +10,7 @@ export default function GalleryView() {
   const { gallery } = getDictionary(locale);
 
   return (
-    <Row gap="16" fillWidth>
+    <Flex direction="row" m={{ direction: "column" }} gap="16" fillWidth>
       {gallery.images.map((image, index) => (
         <Flex flex={1} key={index}>
           <Media
@@ -25,6 +25,6 @@ export default function GalleryView() {
           />
         </Flex>
       ))}
-    </Row>
+    </Flex>
   );
 }
