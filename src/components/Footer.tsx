@@ -12,7 +12,7 @@ export const Footer = () => {
   const { person, social } = getDictionary(locale);
 
   return (
-    <Row as="footer" fillWidth padding="8" horizontal="center" s={{ direction: "column" }} style={{ paddingBottom: "100px" }}>
+    <Row as="footer" fillWidth padding="8" horizontal="center" s={{ direction: "column" }}>
       <Row
         className={styles.mobile}
         maxWidth="m"
