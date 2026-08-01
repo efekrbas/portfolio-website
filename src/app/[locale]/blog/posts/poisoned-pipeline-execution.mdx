@@ -1,0 +1,16 @@
+---
+title: "Poisoned Pipeline Execution (PPE)"
+summary: "CI/CD süreçlerinde Poisoned Pipeline Execution (PPE) zafiyeti ve korunma yöntemleri."
+publishedAt: "2024-06-05"
+tag: "Siber Güvenlik"
+link: "https://gallipoli.xyz/blog/poisoned-pipeline-execution-ppe"
+---
+
+## CI/CD Süreçlerinde Gizli Tehlike: PPE
+Yazılım geliştirme süreçlerinde Sürekli Entegrasyon ve Sürekli Dağıtım (CI/CD) hatları, kodun canlı ortama taşınmasındaki en kritik köprüdür. Ancak bu köprünün güvenliği genellikle göz ardı edilir. Poisoned Pipeline Execution (PPE), saldırganların CI/CD pipeline yapılandırma dosyalarına (.gitlab-ci.yml, Jenkinsfile vb.) zararlı komutlar enjekte ederek build sunucularını ve dolayısıyla üretim ortamını ele geçirmesini sağlayan tehlikeli bir zafiyettir.
+
+## Saldırı Senaryosu ve Analiz
+Yazımda, bir saldırganın düşük yetkilerle bir depoya (repository) nasıl Pull Request (PR) gönderdiğini ve bu PR'ın otomatik test aşamasında pipeline'ı zehirleyerek yetkili (privileged) ortamlara nasıl erişim sağladığını pratik örneklerle gösterdim. Çevre değişkenlerinin (environment variables) sızdırılması, en yaygın PPE sonuçlarından biridir.
+
+## Nasıl Korunuruz?
+Pipeline'ları korumak için onay mekanizmaları (manual trigger), runner izolasyonu, en az yetki prensibi (PoLP) ve CI/CD süreçlerinde secrets management (sır yönetimi) uygulamalarının nasıl entegre edileceğini detaylıca anlattım. Tamamı için bağlantıya tıklayabilirsiniz.

@@ -1,0 +1,16 @@
+---
+title: "Custom Windows XP Zafiyet Analizi"
+summary: "Custom Windows XP ortamında zafiyet analizi ve exploit geliştirme uygulamaları."
+publishedAt: "2024-04-15"
+tag: "Siber Güvenlik"
+link: "https://medium.com/@efekk/custom-windows-xp-zafiyet-analizi-af6f1af27df3"
+---
+
+## Neden Windows XP?
+Günümüzde Windows XP artık desteklenmeyen bir işletim sistemi olsa da, birçok eski endüstriyel kontrol sisteminde (ICS) ve yalıtılmış ağlarda hala karşımıza çıkabilmektedir. Bu yazıda, zafiyetli bir şekilde yapılandırılmış özel bir Windows XP ortamında zafiyet analizi süreçlerini detaylandırıyorum.
+
+## Exploit Geliştirme ve SMB Zafiyetleri
+Makalede özellikle MS08-067 gibi kritik SMB zafiyetlerinin yanı sıra, hafıza bozulması (memory corruption) ve buffer overflow hatalarının temel mantığına değindim. Debugger araçları kullanarak zafiyetli bir uygulamanın bellekte nasıl çöktüğünü analiz edip, kendi özel exploit (sömürü kodu) taslaklarımı oluşturma adımlarını belgeledim.
+
+## Korunma Yöntemleri
+Saldırı adımlarının yanında, ağ segmentasyonu ve izinsiz giriş tespit sistemlerinin (IDS) bu tür eski sistemleri korumadaki rolüne de dikkat çektim. Adım adım istismar sürecini ve savunma stratejilerini makalenin tamamında bulabilirsiniz.

@@ -13,6 +13,7 @@ import {
   Avatar,
   Media,
   Line,
+  Button,
 } from "@once-ui-system/core";
 import { baseURL } from "@/resources";
 import { getDictionary } from "@/resources";
@@ -144,6 +145,20 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             <CustomMDX source={post.content} />
           </Column>
           
+          {post.metadata.link && (
+            <Column maxWidth="s" fillWidth horizontal="center" marginTop="32">
+              <Button 
+                href={post.metadata.link}
+                target="_blank"
+                variant="primary"
+                size="l"
+                prefixIcon="chevronRight"
+              >
+                {routeParams.locale === "tr" ? "Yazının Tamamını Oku" : "Read Full Article"}
+              </Button>
+            </Column>
+          )}
+
           <ShareSection 
             title={post.metadata.title} 
             url={`${baseURL}/${routeParams.locale}${blog.path}/${post.slug}`} 
