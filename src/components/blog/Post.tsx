@@ -43,7 +43,7 @@ export default function Post({ post, thumbnail, direction }: PostProps) {
         />
       )}
       <Row fillWidth horizontal="center">
-        <Column paddingY="24" paddingX="l" gap="20" vertical="center" horizontal="center" align="center">
+        <Column paddingY="24" paddingX="l" gap="20" vertical="start" horizontal="center" align="center">
           <Row gap="24" vertical="center" horizontal="center">
             <Row vertical="center" gap="16" horizontal="center">
               <Avatar src={person.avatar} size="s" />

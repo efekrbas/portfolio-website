@@ -105,27 +105,6 @@ export default async function About(props: { params: Promise<{ locale: string }>
         </Column>
       )}
       <Row fillWidth s={{ direction: "column"}} horizontal="center">
-        {about.avatar.display && (
-          <Column
-            className={styles.avatar}
-            top="64"
-            fitHeight
-            position="sticky"
-            s={{ position: "relative", style: { top: "auto", paddingTop: "80px" }, horizontal: "center" }}
-            xs={{ style: { top: "auto" } }}
-            minWidth="160"
-            paddingX="l"
-            paddingBottom="xl"
-            gap="m"
-            flex={3}
-            horizontal="center"
-            align="center"
-            style={{ alignItems: "center", textAlign: "center" }}
-          >
-            <Avatar src={person.avatar} size="xl" />
-
-          </Column>
-        )}
         <Column className={styles.blockAlign} flex={9} maxWidth={40}>
           <Column
             id={about.intro.title}
@@ -136,6 +115,22 @@ export default async function About(props: { params: Promise<{ locale: string }>
             s={{ horizontal: "center" }}
             style={{ textAlign: "center", userSelect: "none" }}
           >
+            {about.avatar.display && (
+              <Column horizontal="center" paddingBottom="24">
+                <Avatar src={person.avatar} size="xl" />
+              </Column>
+            )}
+
+            <Row gap="8" vertical="center" horizontal="center" style={{ justifyContent: "center", width: "100%" }}>
+              <Icon onBackground="neutral-strong" name="globe" />
+              <Text variant="body-default-m" onBackground="neutral-medium">{person.location}</Text>
+            </Row>
+
+            <Row gap="12" vertical="center" horizontal="center" paddingTop="16" paddingBottom="40" style={{ justifyContent: "center", width: "100%" }}>
+              <Tag size="m" variant="tertiary">{params.locale === "en" ? "Turkish" : "Türkçe"}</Tag>
+              <Tag size="m" variant="tertiary">{params.locale === "en" ? "English" : "İngilizce"}</Tag>
+            </Row>
+
             {about.calendar.display && (
               <Row
                 fitWidth
@@ -146,9 +141,11 @@ export default async function About(props: { params: Promise<{ locale: string }>
                 gap="8"
                 marginBottom="m"
                 vertical="center"
+                horizontal="center"
                 className={styles.blockAlign}
                 style={{
                   backdropFilter: "blur(var(--static-space-1))",
+                  margin: "0 auto 24px auto"
                 }}
               >
                 <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
@@ -161,26 +158,23 @@ export default async function About(props: { params: Promise<{ locale: string }>
                 />
               </Row>
             )}
-            <Heading className={styles.textAlign} variant="heading-strong-xl">
+
+            <Heading className={styles.textAlign} variant="display-strong-xl">
               {person.name}
             </Heading>
             <Text
               className={styles.textAlign}
-              variant="heading-default-m"
+              variant="heading-default-xl"
               onBackground="neutral-medium"
+              paddingBottom="32"
             >
               {person.role}
             </Text>
-            <Row gap="8" vertical="center" horizontal="center" paddingTop="12" style={{ justifyContent: "center", width: "100%" }}>
-              <Icon onBackground="neutral-strong" name="globe" />
-              <Text variant="body-default-m" onBackground="neutral-medium">{person.location}</Text>
-            </Row>
+
             {social.length > 0 && (
               <Row
                 className={styles.blockAlign}
-                paddingTop="20"
-                paddingBottom="8"
-                gap="4"
+                gap="12"
                 wrap={false}
                 horizontal="center"
                 fillWidth

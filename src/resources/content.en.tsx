@@ -28,15 +28,15 @@ const newsletter: Newsletter = {
 
 const social: Social = [
   {
-    name: "LinkedIn",
-    icon: "linkedin",
-    link: "https://linkedin.com/in/efekrbs",
-    essential: true,
-  },
-  {
     name: "GitHub",
     icon: "github",
     link: "https://github.com/efekrbas",
+    essential: true,
+  },
+  {
+    name: "LinkedIn",
+    icon: "linkedin",
+    link: "https://linkedin.com/in/efekrbs",
     essential: true,
   },
   {
