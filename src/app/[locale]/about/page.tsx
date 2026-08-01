@@ -142,7 +142,7 @@ export default async function About(props: { params: Promise<{ locale: string }>
             minHeight="160"
             vertical="center"
             marginBottom="32"
-            s={{ horizontal: "center", align: "center", style: { textAlign: "center" } }}
+            s={{ horizontal: "center", style: { textAlign: "center" } }}
             style={{ textAlign: "left", userSelect: "none" }}
           >
             {about.calendar.display && (
@@ -171,7 +171,7 @@ export default async function About(props: { params: Promise<{ locale: string }>
               </Row>
             )}
 
-            <Heading className={styles.textAlign} variant="display-strong-xl" s={{ align: "center" }} marginBottom="8">
+            <Heading className={styles.textAlign} variant="display-strong-xl" s={{ style: { textAlign: "center" } }} marginBottom="8">
               {person.name}
             </Heading>
             <Text
@@ -179,7 +179,7 @@ export default async function About(props: { params: Promise<{ locale: string }>
               variant="heading-default-xl"
               onBackground="neutral-medium"
               paddingBottom="32"
-              s={{ align: "center" }}
+              s={{ style: { textAlign: "center" } }}
             >
               {person.role}
             </Text>
