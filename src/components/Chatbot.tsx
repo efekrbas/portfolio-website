@@ -24,6 +24,8 @@ export function Chatbot() {
         { id: '1', role: 'bot', content: t.greeting }
     ]);
     const [input, setInput] = useState('');
+    const [isMobile, setIsMobile] = useState(false);
+    const messagesContainerRef = useRef<HTMLDivElement>(null);
     const [isLoading, setIsLoading] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
     const [showBeepBoop, setShowBeepBoop] = useState(false);
@@ -160,7 +162,9 @@ export function Chatbot() {
     }, [locale, t.greeting]);
 
     const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+        if (messagesContainerRef.current) {
+            messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+        }
     };
 
     useEffect(() => {
@@ -289,7 +293,7 @@ export function Chatbot() {
                                 </button>
                             </div>
 
-                            <div className="chat-messages">
+                            <div className="chat-messages" ref={messagesContainerRef}>
                                 {messages.map((msg) => (
                                     <div key={msg.id} className={`message ${msg.role}`}>
                                         {msg.content}

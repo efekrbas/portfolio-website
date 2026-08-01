@@ -588,8 +588,4 @@
         bottom: 80px;
         right: -10px;
     }
-
-    .chat-header-close-btn {
-        display: none !important;
-    }
 }
