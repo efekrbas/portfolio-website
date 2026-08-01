@@ -71,7 +71,7 @@ export const GithubPRCard: React.FC<GithubPRCardProps> = ({
           radius="l"
           style={{
             width: "380px",
-            height: "320px",
+            height: "360px",
             overflow: "hidden",
             position: "relative",
             flexShrink: 0
@@ -122,10 +122,10 @@ export const GithubPRCard: React.FC<GithubPRCardProps> = ({
           </Column>
 
           {/* Language Color Bar */}
-          <div style={{ height: "4px", width: "100%", backgroundColor: languageColor }} />
+          <div style={{ height: "4px", width: "100%", backgroundColor: languageColor, flexShrink: 0 }} />
 
           {/* Footer Area */}
-          <Column paddingX="24" paddingY="16" background="neutral-alpha-weak" borderTop="neutral-medium">
+          <Column paddingX="24" paddingY="16" background="neutral-alpha-weak" borderTop="neutral-medium" style={{ flexShrink: 0 }}>
             <Row horizontal="between" vertical="center">
               <Row gap="8" vertical="center">
                 <GitPullRequest size={16} color="var(--neutral-on-background)" />
