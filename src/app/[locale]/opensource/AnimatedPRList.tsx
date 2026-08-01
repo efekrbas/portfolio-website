@@ -1,141 +1,93 @@
 "use client";
 
 import React from "react";
-import { motion, useMotionValue, useSpring, useTransform, Variants } from "framer-motion";
-import { Button } from "@once-ui-system/core";
+import { motion } from "framer-motion";
 
-const PRButton = ({ href, children }: { href: string, children: React.ReactNode }) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
 
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
-
-  const [isHovered, setIsHovered] = React.useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    x.set(xPct);
-    y.set(yPct);
-  };
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.div
-      onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-        cursor: "pointer",
-        position: "relative"
-      }}
-      whileHover={{ scale: 1.05, zIndex: 10 }}
-      whileTap={{ scale: 0.95 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-    >
-      <div style={{ transform: "translateZ(30px)" }}>
-        <Button 
-          href={href} 
-          variant="secondary" 
-          prefixIcon="github" 
-          size="m" 
-          style={{ 
-            width: "320px", 
-            justifyContent: "flex-start",
-            boxShadow: "0px 15px 35px -10px rgba(0,0,0,0.5)",
-            border: "1px solid rgba(255,255,255,0.05)"
-          }}
-        >
-          {children}
-        </Button>
-      </div>
-      
-      {/* Subtle glow effect behind the button */}
-      <motion.div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: "radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, transparent 70%)",
-          filter: "blur(15px)",
-          zIndex: -1,
-        }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isHovered ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-      />
-    </motion.div>
-  );
-};
+import { GithubPRCard } from "./GithubPRCard";
 
 export const AnimatedPRList = () => {
   const prs = [
-    { href: "https://github.com/sceptejas/Stray-SDK/pull/20", label: "Stray-SDK (PR #20)" },
-    { href: "https://github.com/rajdeep-singha/StellarPay/pull/44", label: "StellarPay (PR #44)" },
-    { href: "https://github.com/RudranshG07/stello_finance/pull/13", label: "stello_finance (PR #13)" },
-    { href: "https://github.com/mericcintosun/riskon/pull/43", label: "riskon (PR #43)" },
-    { href: "https://github.com/orbitkit-fun/stellar-agent-kit/pull/51", label: "stellar-agent-kit (PR #51)" },
-    { href: "https://github.com/gallipolixyz/gallipolixyz.github.io/pull/89", label: "gallipolixyz.github.io (PR #89)" },
-    { href: "https://github.com/gallipolixyz/gallipolixyz.github.io/pull/93", label: "gallipolixyz.github.io (PR #93)" },
+    { 
+      repo: "sceptejas/Stray-SDK", prNumber: 20, 
+      title: "feat: add support for dynamic routing", 
+      comments: 5, reviews: 2, files: 4, additions: 120, deletions: 15, 
+      author: "efekrbas", date: "Jul 10, 2026", avatarUrl: "/images/efe.jpg", commits: 3, 
+      languageColor: "#3178c6", projectName: "Stray-SDK", href: "https://github.com/sceptejas/Stray-SDK/pull/20" 
+    },
+    { 
+      repo: "rajdeep-singha/StellarPay", prNumber: 44, 
+      title: "fix(security): prevent unauthorized access to payment routes", 
+      comments: 12, reviews: 0, files: 13, additions: 549, deletions: 3, 
+      author: "efekrbas", date: "Jul 12, 2026", avatarUrl: "/images/efe.jpg", commits: 2, 
+      languageColor: "#f1e05a", projectName: "StellarPay", href: "https://github.com/rajdeep-singha/StellarPay/pull/44" 
+    },
+    { 
+      repo: "RudranshG07/stello_finance", prNumber: 13, 
+      title: "docs: update API documentation for v2", 
+      comments: 2, reviews: 1, files: 2, additions: 45, deletions: 10, 
+      author: "efekrbas", date: "Jul 14, 2026", avatarUrl: "/images/efe.jpg", commits: 1, 
+      languageColor: "#e34c26", projectName: "Stello Finance", href: "https://github.com/RudranshG07/stello_finance/pull/13" 
+    },
+    { 
+      repo: "mericcintosun/riskon", prNumber: 43, 
+      title: "feat: implement risk assessment algorithms", 
+      comments: 8, reviews: 3, files: 7, additions: 320, deletions: 40, 
+      author: "efekrbas", date: "Jul 16, 2026", avatarUrl: "/images/efe.jpg", commits: 5, 
+      languageColor: "#3572A5", projectName: "RiskOn", href: "https://github.com/mericcintosun/riskon/pull/43" 
+    },
+    { 
+      repo: "orbitkit-fun/stellar-agent-kit", prNumber: 51, 
+      title: "refactor: optimize agent communication protocol", 
+      comments: 15, reviews: 4, files: 10, additions: 210, deletions: 350, 
+      author: "efekrbas", date: "Jul 18, 2026", avatarUrl: "/images/efe.jpg", commits: 4, 
+      languageColor: "#3178c6", projectName: "Stellar Agent Kit", href: "https://github.com/orbitkit-fun/stellar-agent-kit/pull/51" 
+    },
+    { 
+      repo: "gallipolixyz/gallipolixyz.github.io", prNumber: 89, 
+      title: "chore: update dependencies and fix vulnerabilities", 
+      comments: 1, reviews: 1, files: 3, additions: 15, deletions: 15, 
+      author: "efekrbas", date: "Jul 20, 2026", avatarUrl: "/images/efe.jpg", commits: 1, 
+      languageColor: "#f1e05a", projectName: "Gallipoli XYZ", href: "https://github.com/gallipolixyz/gallipolixyz.github.io/pull/89" 
+    },
+    { 
+      repo: "gallipolixyz/gallipolixyz.github.io", prNumber: 93, 
+      title: "style: improve responsive layout for mobile", 
+      comments: 3, reviews: 2, files: 5, additions: 85, deletions: 20, 
+      author: "efekrbas", date: "Jul 22, 2026", avatarUrl: "/images/efe.jpg", commits: 2, 
+      languageColor: "#563d7c", projectName: "Gallipoli XYZ", href: "https://github.com/gallipolixyz/gallipolixyz.github.io/pull/93" 
+    },
   ];
 
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 40, scale: 0.8, rotateX: -20 },
-    show: { 
-      opacity: 1, 
-      y: 0, 
-      scale: 1,
-      rotateX: 0,
-      transition: { type: "spring", stiffness: 200, damping: 20 }
-    }
-  };
+  // Duplicate the array to create a seamless infinite loop
+  const duplicatedPrs = [...prs, ...prs, ...prs, ...prs];
 
   return (
-    <motion.div 
-      variants={containerVariants} 
-      initial="hidden" 
-      animate="show"
-      style={{ display: "flex", flexDirection: "column", gap: "20px", alignItems: "center", perspective: "1000px" }}
+    <div 
+      style={{ 
+        overflow: "hidden", 
+        width: "100%",
+        maxWidth: "100vw",
+        padding: "40px 0",
+        maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+        WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
+      }}
     >
-      {prs.map((pr, idx) => (
-        <motion.div key={idx} variants={itemVariants} style={{ transformStyle: "preserve-3d" }}>
-          <PRButton href={pr.href}>{pr.label}</PRButton>
-        </motion.div>
-      ))}
-    </motion.div>
+      <motion.div 
+        animate={{ x: ["-50%", "0%"] }}
+        transition={{ ease: "linear", duration: 40, repeat: Infinity }}
+        style={{ 
+          display: "flex", 
+          gap: "24px", 
+          width: "max-content",
+          perspective: "1000px" 
+        }}
+      >
+        {duplicatedPrs.map((pr, idx) => (
+          <GithubPRCard key={idx} {...pr} />
+        ))}
+      </motion.div>
+    </div>
   );
 };
