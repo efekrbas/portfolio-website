@@ -111,7 +111,7 @@ export default async function About(props: { params: Promise<{ locale: string }>
             top="64"
             fitHeight
             position="sticky"
-            s={{ position: "relative", style: { top: "auto", paddingTop: "80px" }, horizontal: "center", paddingBottom: "16" }}
+            s={{ position: "relative", style: { top: "auto", paddingTop: "80px", paddingBottom: "16px" }, horizontal: "center" }}
             xs={{ style: { top: "auto" } }}
             minWidth="160"
             paddingX="l"
