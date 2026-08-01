@@ -354,7 +354,6 @@ export function Chatbot() {
                 {isOpen ? <X size={28} /> : (
                     <>
                         <Bot size={28} />
-                        <span className="chatbot-toggle-status"></span>
                     </>
                 )}
             </motion.div>
