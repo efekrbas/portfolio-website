@@ -273,10 +273,10 @@ export function Chatbot() {
                         />
                         <motion.div
                             className="chatbot-window"
-                            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            transition={{ duration: 0.2, ease: "easeOut" }}
                         >
                             <div className="chat-header">
                                 <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px', margin: 0 }}>
