@@ -106,25 +106,27 @@ export default async function Project({
         <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
           {post.metadata.publishedAt && formatDate(post.metadata.publishedAt, false, routeParams.locale)}
         </Text>
-        <Heading variant="display-strong-m">{post.metadata.title}</Heading>
+        <Heading as="h2" id="project-title" variant="display-strong-m">{post.metadata.title}</Heading>
       </Column>
-      <Row marginBottom="32" horizontal="center">
-        <Row gap="16" vertical="center">
-          {post.metadata.team && <AvatarGroup reverse avatars={avatars} size="s" />}
-          <Text variant="label-default-m" onBackground="brand-weak">
-            {post.metadata.team?.map((member, idx) => (
-              <span key={idx}>
-                {idx > 0 && (
-                  <Text as="span" onBackground="neutral-weak">
-                    ,{" "}
-                  </Text>
-                )}
-                <SmartLink href={member.linkedIn}>{member.name}</SmartLink>
-              </span>
-            ))}
-          </Text>
+      {post.metadata.team && post.metadata.team.length > 0 && (
+        <Row marginBottom="32" horizontal="center">
+          <Row gap="16" vertical="center">
+            <AvatarGroup reverse avatars={avatars} size="s" />
+            <Text variant="label-default-m" onBackground="brand-weak">
+              {post.metadata.team.map((member, idx) => (
+                <span key={idx}>
+                  {idx > 0 && (
+                    <Text as="span" onBackground="neutral-weak">
+                      ,{" "}
+                    </Text>
+                  )}
+                  <SmartLink href={member.linkedIn}>{member.name}</SmartLink>
+                </span>
+              ))}
+            </Text>
+          </Row>
         </Row>
-      </Row>
+      )}
       {post.metadata.images.length > 0 && (
         <Media priority aspectRatio="16 / 9" radius="m" alt="image" src={post.metadata.images[0]} />
       )}
@@ -133,10 +135,10 @@ export default async function Project({
       </Column>
       <Column fillWidth gap="40" horizontal="center" marginTop="40">
         <Line maxWidth="40" />
-        <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
-          {routeParams.locale === "tr" ? "İlgili projeler" : "Related projects"}
+        <Heading as="h2" id="other-projects" variant="heading-strong-xl" marginBottom="24">
+          {routeParams.locale === "tr" ? "Diğer projeler" : "Other projects"}
         </Heading>
-        <Projects exclude={[post.slug]} range={[2]} />
+        <Projects exclude={[post.slug]} range={[1, 2]} />
       </Column>
       <ScrollToHash />
     </Column>

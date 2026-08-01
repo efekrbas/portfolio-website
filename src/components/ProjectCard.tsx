@@ -36,7 +36,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   const locale = (params?.locale as string) || "tr";
 
   return (
-    <Column fillWidth gap="m" align="center" horizontal="center" paddingBottom="24">
+    <Column fillWidth gap="m" paddingBottom="24">
       {images && images.length > 0 && (
         <Carousel
           sizes="(max-width: 960px) 100vw, 960px"
@@ -46,26 +46,56 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           }))}
         />
       )}
-      <Column fillWidth paddingX="s" paddingTop="12" gap="16" horizontal="center" align="center">
-        {title && (
-          <Heading as="h2" wrap="balance" variant="heading-strong-xl" align="center">
-            {title}
-          </Heading>
-        )}
-        {link && (
-          <Button
-            href={link}
-            variant="secondary"
-            size="l"
-            prefixIcon={link.includes("github.com") ? "github" : undefined}
-            suffixIcon="arrowRight"
-          >
-            {link.includes("github.com") 
-              ? (locale === "tr" ? "GitHub'da İncele" : "View on GitHub") 
-              : (locale === "tr" ? "Canlı Demoyu İncele" : "View Live Demo")}
-          </Button>
-        )}
-      </Column>
+      <Flex
+        fillWidth
+        direction="column"
+        m={{ direction: "row" }}
+        paddingX="s"
+        paddingTop="12"
+        gap="l"
+      >
+        <Column flex={3} gap="24">
+          {title && (
+            <Heading as="h2" id={title.replace(/\s+/g, '-').toLowerCase()} data-exclude-nav wrap="balance" variant="heading-strong-xl">
+              {title}
+            </Heading>
+          )}
+        </Column>
+        <Column flex={4} gap="24">
+          {avatars && avatars.length > 0 && (
+            <AvatarGroup avatars={avatars} size="m" />
+          )}
+          {description && (
+            <Text
+              wrap="balance"
+              variant="body-default-s"
+              onBackground="neutral-weak"
+            >
+              {description}
+            </Text>
+          )}
+          <Flex gap="24" vertical="center">
+            {href && (
+              <SmartLink
+                href={href}
+                suffixIcon="chevronRight"
+                style={{ margin: "0" }}
+              >
+                {locale === "tr" ? "Projeyi İncele" : "Read case study"}
+              </SmartLink>
+            )}
+            {link && (
+              <SmartLink
+                href={link}
+                suffixIcon="arrowUpRight"
+                style={{ margin: "0" }}
+              >
+                {locale === "tr" ? "Canlı Projeye Git" : "View project"}
+              </SmartLink>
+            )}
+          </Flex>
+        </Column>
+      </Flex>
     </Column>
   );
 };
