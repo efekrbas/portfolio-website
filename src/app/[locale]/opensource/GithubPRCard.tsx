@@ -71,7 +71,6 @@ export const GithubPRCard: React.FC<GithubPRCardProps> = ({
           style={{
             width: "380px",
             height: "100%",
-            boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
             overflow: "hidden",
             position: "relative",
             flexShrink: 0

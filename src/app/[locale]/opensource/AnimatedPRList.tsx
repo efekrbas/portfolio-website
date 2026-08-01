@@ -69,9 +69,7 @@ export const AnimatedPRList = () => {
         overflow: "hidden", 
         width: "100%",
         maxWidth: "100vw",
-        padding: "40px 0",
-        maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-        WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
+        padding: "40px 0"
       }}
     >
       <motion.div 
