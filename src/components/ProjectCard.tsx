@@ -48,8 +48,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       )}
       <Flex
         fillWidth
-        direction="column"
-        m={{ direction: "row" }}
+        direction="row"
+        m={{ direction: "column" }}
         paddingX="s"
         paddingTop="12"
         gap="l"
