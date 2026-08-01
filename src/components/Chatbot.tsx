@@ -27,6 +27,16 @@ export function Chatbot() {
     const [isMobile, setIsMobile] = useState(false);
     const messagesContainerRef = useRef<HTMLDivElement>(null);
     const [isLoading, setIsLoading] = useState(false);
+
+    const handleClose = () => {
+        if (typeof document !== 'undefined') {
+            const activeElement = document.activeElement as HTMLElement;
+            if (activeElement && typeof activeElement.blur === 'function') {
+                activeElement.blur();
+            }
+        }
+        setIsOpen(false);
+    };
     const [isVisible, setIsVisible] = useState(true);
     const [showBeepBoop, setShowBeepBoop] = useState(false);
     const [beepBoopIndex, setBeepBoopIndex] = useState(0);
@@ -269,7 +279,7 @@ export function Chatbot() {
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: 0.3 }}
-                            onClick={() => setIsOpen(false)}
+                            onClick={handleClose}
                         />
                         <motion.div
                             className="chatbot-window"
@@ -283,7 +293,7 @@ export function Chatbot() {
                                     <Bot size={22} style={{ color: 'var(--brand-solid-strong)', strokeWidth: 'var(--icon-stroke-width, 1.5px)', fill: 'var(--icon-fill, none)' }} />
                                     {t.header}
                                 </h3>
-                                <button className="chat-header-close-btn" onClick={() => setIsOpen(false)} style={{ background: 'none', border: 'none', color: 'var(--neutral-on-surface-medium)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <button className="chat-header-close-btn" onClick={handleClose} style={{ background: 'none', border: 'none', color: 'var(--neutral-on-surface-medium)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                     <X size={20} />
                                 </button>
                             </div>
@@ -360,7 +370,7 @@ export function Chatbot() {
 
             <motion.div
                 className={`chatbot-bubble ${isOpen ? 'is-open' : ''}`}
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => isOpen ? handleClose() : setIsOpen(true)}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 style={{ position: 'relative' }}
