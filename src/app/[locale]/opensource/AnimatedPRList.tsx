@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 
 
 
@@ -78,20 +77,27 @@ export const AnimatedPRList = () => {
         WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)"
       }}
     >
-      <motion.div 
-        animate={{ x: ["-50%", "0%"] }}
-        transition={{ ease: "linear", duration: 40, repeat: Infinity }}
-        style={{ 
-          display: "flex", 
-          gap: "24px", 
-          width: "max-content",
-          perspective: "1000px" 
-        }}
-      >
+      <style>{`
+        @keyframes scroll-pr {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0%); }
+        }
+        .pr-marquee {
+          display: flex;
+          gap: 24px;
+          width: max-content;
+          perspective: 1000px;
+          animation: scroll-pr 40s linear infinite;
+        }
+        .pr-marquee:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+      <div className="pr-marquee">
         {duplicatedPrs.map((pr, idx) => (
           <GithubPRCard key={idx} {...pr} />
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 };
