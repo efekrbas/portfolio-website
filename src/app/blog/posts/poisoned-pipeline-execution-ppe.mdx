@@ -1,0 +1,16 @@
+---
+title: "Poisoned Pipeline Execution (PPE)"
+summary: "Poisoned Pipeline Execution (PPE) vulnerability in CI/CD processes and mitigation methods."
+publishedAt: "2024-06-05"
+tag: "Cybersecurity"
+link: "https://gallipoli.xyz/blog/poisoned-pipeline-execution-ppe"
+---
+
+## The Hidden Danger in CI/CD Processes: PPE
+In software development processes, Continuous Integration and Continuous Deployment (CI/CD) pipelines are the most critical bridge for moving code to production. However, the security of this bridge is often overlooked. Poisoned Pipeline Execution (PPE) is a dangerous vulnerability that allows attackers to inject malicious commands into CI/CD pipeline configuration files (e.g., .gitlab-ci.yml, Jenkinsfile) to compromise build servers and, consequently, the production environment.
+
+## Attack Scenario and Analysis
+In my article, I demonstrated with practical examples how an attacker with low privileges submits a Pull Request (PR) to a repository, poisons the pipeline during the automated testing phase of this PR, and gains access to privileged environments. Leaking environment variables is one of the most common consequences of PPE.
+
+## How to Protect Ourselves?
+To protect pipelines, I detailed how to integrate manual trigger mechanisms, runner isolation, the Principle of Least Privilege (PoLP), and secrets management practices in CI/CD processes. You can click the link for the full details.

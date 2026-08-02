@@ -17,21 +17,19 @@ import { Mailchimp, AnimatedHover } from "@/components";
 import { Projects } from "@/components/work/Projects";
 import { Posts } from "@/components/blog/Posts";
 
-export async function generateMetadata(props: { params: Promise<{ locale: string }> }) {
-  const params = await props.params;
-  const { home } = getDictionary(params.locale);
+export function generateMetadata() {
+  const { home } = getDictionary();
   return Meta.generate({
     title: home.title,
     description: home.description,
     baseURL: baseURL,
-    path: `/${params.locale}${home.path}`,
+    path: home.path,
     image: home.image,
   });
 }
 
-export default async function Home(props: { params: Promise<{ locale: string }> }) {
-  const params = await props.params;
-  const { home, about, person } = getDictionary(params.locale);
+export default function Home() {
+  const { home, about, person } = getDictionary();
 
   return (
     <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
@@ -112,7 +110,7 @@ export default async function Home(props: { params: Promise<{ locale: string }> 
         <RevealFx translateY="16" delay={0.6}>
           <Column fillWidth gap="32" marginBottom="l" horizontal="center" align="center">
             <Heading as="h2" variant="display-strong-xs" wrap="balance" align="center">
-              {params.locale === "en" ? "Latest Posts from Blog" : "Blog'dan Son Yazılar"}
+              Latest Posts from Blog
             </Heading>
             <Column maxWidth="s" fillWidth paddingX="20" horizontal="center">
               <Posts range={[1, 2]} columns="1" />

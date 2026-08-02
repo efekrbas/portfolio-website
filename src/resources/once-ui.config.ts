@@ -11,7 +11,7 @@ import {
   SocialSharingConfig,
   StyleConfig,
 } from "@/types";
-import { home, person, social } from "./content.tr";
+import { home, person, social } from "./content.en";
 
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
 const baseURL: string = "https://efekrbs.com.tr";

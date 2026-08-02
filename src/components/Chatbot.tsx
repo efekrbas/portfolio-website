@@ -3,7 +3,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, Send, X, Bot, User } from 'lucide-react';
-import { useParams } from "next/navigation";
 import { getDictionary } from "@/resources";
 
 const BEEP_BOOP_MESSAGES = [
@@ -15,9 +14,7 @@ const BEEP_BOOP_MESSAGES = [
 ];
 
 export function Chatbot() {
-    const params = useParams();
-    const locale = (params?.locale as string) || "tr";
-    const { chatbot: t } = getDictionary(locale);
+    const { chatbot: t } = getDictionary();
 
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState([
@@ -136,16 +133,6 @@ export function Chatbot() {
         };
     }, [isOpen]);
 
-    // Update greeting when language changes
-    useEffect(() => {
-        setMessages(prev => {
-            const firstMsg = prev[0];
-            if (firstMsg && firstMsg.id === '1') {
-                return [{ ...firstMsg, content: t.greeting }, ...prev.slice(1)];
-            }
-            return prev;
-        });
-    }, [locale, t.greeting]);
 
     const scrollToBottom = () => {
         if (messagesContainerRef.current) {

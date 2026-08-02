@@ -25,28 +25,24 @@ import { Posts } from "@/components/blog/Posts";
 import { ShareSection } from "@/components/blog/ShareSection";
 
 export async function generateStaticParams() {
-  const posts = getPosts(["src", "app", "[locale]", "blog", "posts"]);
-  const locales = ['tr', 'en'];
-  return locales.flatMap(locale => 
-    posts.map((post) => ({
-      locale,
-      slug: post.slug,
-    }))
-  );
+  const posts = getPosts(["src", "app", "blog", "posts"]);
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string | string[]; locale: string }>;
+  params: Promise<{ slug: string | string[] }>;
 }): Promise<Metadata> {
   const routeParams = await params;
-  const { blog, person } = getDictionary(routeParams.locale);
+  const { blog, person } = getDictionary();
   const slugPath = Array.isArray(routeParams.slug)
     ? routeParams.slug.join("/")
     : routeParams.slug || "";
 
-  const posts = getPosts(["src", "app", "[locale]", "blog", "posts"]);
+  const posts = getPosts(["src", "app", "blog", "posts"]);
   let post = posts.find((post) => post.slug === slugPath);
 
   if (!post) return {};
@@ -56,18 +52,18 @@ export async function generateMetadata({
     description: post.metadata.summary,
     baseURL: baseURL,
     image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
-    path: `/${routeParams.locale}${blog.path}/${post.slug}`,
+    path: `${blog.path}/${post.slug}`,
   });
 }
 
-export default async function Blog({ params }: { params: Promise<{ slug: string | string[]; locale: string }> }) {
+export default async function Blog({ params }: { params: Promise<{ slug: string | string[] }> }) {
   const routeParams = await params;
-  const { blog, person, about } = getDictionary(routeParams.locale);
+  const { blog, person, about } = getDictionary();
   const slugPath = Array.isArray(routeParams.slug)
     ? routeParams.slug.join("/")
     : routeParams.slug || "";
 
-  const allPosts = getPosts(["src", "app", "[locale]", "blog", "posts"]);
+  const allPosts = getPosts(["src", "app", "blog", "posts"]);
   let post = allPosts.find((post) => post.slug === slugPath);
 
   if (!post) {
@@ -102,11 +98,11 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             }}
           />
           <Column maxWidth="s" gap="16" horizontal="center" align="center">
-            <SmartLink href={`/${routeParams.locale}/blog`}>
+            <SmartLink href={`/blog`}>
               <Text variant="label-strong-m">Blog</Text>
             </SmartLink>
             <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
-              {post.metadata.publishedAt && formatDate(post.metadata.publishedAt, false, routeParams.locale)}
+              {post.metadata.publishedAt && formatDate(post.metadata.publishedAt, false)}
             </Text>
             <Heading variant="display-strong-m">{post.metadata.title}</Heading>
             {post.metadata.subtitle && (
@@ -154,21 +150,21 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
                 size="l"
                 prefixIcon="chevronRight"
               >
-                {routeParams.locale === "tr" ? "Yazının Tamamını Oku" : "Read Full Article"}
+                Read Full Article
               </Button>
             </Column>
           )}
 
           <ShareSection 
             title={post.metadata.title} 
-            url={`${baseURL}/${routeParams.locale}${blog.path}/${post.slug}`} 
+            url={`${baseURL}${blog.path}/${post.slug}`} 
           />
 
           {allPosts.length > 1 && (
             <Column fillWidth gap="40" horizontal="center" marginTop="40">
               <Line maxWidth="40" />
               <Text as="h2" id="recent-posts" variant="heading-strong-xl" marginBottom="24">
-                {routeParams.locale === "tr" ? "Son yazılar" : "Recent posts"}
+                Recent posts
               </Text>
               <Posts exclude={[post.slug]} range={[1, 2]} columns="2" thumbnail direction="column" />
             </Column>

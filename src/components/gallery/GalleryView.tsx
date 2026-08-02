@@ -1,13 +1,10 @@
 "use client";
 
 import { Media, Row, Flex } from "@once-ui-system/core";
-import { useParams } from "next/navigation";
 import { getDictionary } from "@/resources";
 
 export default function GalleryView() {
-  const params = useParams();
-  const locale = (params?.locale as string) || "tr";
-  const { gallery } = getDictionary(locale);
+  const { gallery } = getDictionary();
 
   return (
     <Flex direction="row" m={{ direction: "column" }} gap="16" fillWidth>

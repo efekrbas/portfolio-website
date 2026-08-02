@@ -5,22 +5,20 @@ import { baseURL } from "@/resources";
 import { getDictionary } from "@/resources";
 import { getPosts } from "@/utils/utils";
 
-export async function generateMetadata(props: { params: Promise<{ locale: string }> }) {
-  const params = await props.params;
-  const { blog } = getDictionary(params.locale);
+export function generateMetadata() {
+  const { blog } = getDictionary();
   return Meta.generate({
     title: blog.title,
     description: blog.description,
     baseURL: baseURL,
     image: `/api/og/generate?title=${encodeURIComponent(blog.title)}`,
-    path: `/${params.locale}${blog.path}`,
+    path: blog.path,
   });
 }
 
-export default async function Blog(props: { params: Promise<{ locale: string }> }) {
-  const params = await props.params;
-  const { blog, person } = getDictionary(params.locale);
-  const allPosts = getPosts(["src", "app", "[locale]", "blog", "posts"]);
+export default function Blog() {
+  const { blog, person } = getDictionary();
+  const allPosts = getPosts(["src", "app", "blog", "posts"]);
 
   return (
     <Column maxWidth="m" paddingTop="24">
@@ -47,7 +45,7 @@ export default async function Blog(props: { params: Promise<{ locale: string }> 
         {allPosts.length > 3 && (
           <>
             <Heading as="h2" variant="heading-strong-xl" marginLeft="l">
-              {params.locale === "tr" ? "Önceki Yazılar" : "Earlier posts"}
+              Earlier posts
             </Heading>
             <Posts range={[4]} columns="2" />
           </>

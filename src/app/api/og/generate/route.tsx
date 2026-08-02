@@ -5,7 +5,7 @@ import { getDictionary } from "@/resources";
 export const runtime = "nodejs";
 
 export async function GET(request: Request) {
-  const { person } = getDictionary("tr");
+  const { person } = getDictionary();
   let url = new URL(request.url);
   let title = url.searchParams.get("title") || "Portfolio";
 

@@ -19,21 +19,19 @@ import TableOfContents from "@/components/about/TableOfContents";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
 
-export async function generateMetadata(props: { params: Promise<{ locale: string }> }) {
-  const params = await props.params;
-  const { about } = getDictionary(params.locale);
+export function generateMetadata() {
+  const { about } = getDictionary();
   return Meta.generate({
     title: about.title,
     description: about.description,
     baseURL: baseURL,
     image: `/api/og/generate?title=${encodeURIComponent(about.title)}`,
-    path: `/${params.locale}${about.path}`,
+    path: about.path,
   });
 }
 
-export default async function About(props: { params: Promise<{ locale: string }> }) {
-  const params = await props.params;
-  const { about, person, social } = getDictionary(params.locale);
+export default function About() {
+  const { about, person, social } = getDictionary();
   
   const structure = [
     {
@@ -130,8 +128,8 @@ export default async function About(props: { params: Promise<{ locale: string }>
             </Row>
 
             <Row gap="12" vertical="center" horizontal="center" paddingTop="8" style={{ justifyContent: "center", width: "100%" }}>
-              <Tag size="m" variant="tertiary">{params.locale === "en" ? "Turkish" : "Türkçe"}</Tag>
-              <Tag size="m" variant="tertiary">{params.locale === "en" ? "English" : "İngilizce"}</Tag>
+              <Tag size="m" variant="tertiary">English</Tag>
+              <Tag size="m" variant="tertiary">Turkish</Tag>
             </Row>
           </Column>
         )}

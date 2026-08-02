@@ -17,25 +17,22 @@ import { Footer, Header, RouteGuard, Providers, Chatbot } from "@/components";
 import { baseURL, effects, fonts, style, dataStyle } from "@/resources";
 import { getDictionary } from "@/resources";
 
-export async function generateMetadata(props: { params: Promise<{ locale: string }> }) {
-  const params = await props.params;
-  const { home } = getDictionary(params.locale);
+export function generateMetadata() {
+  const { home } = getDictionary();
   return Meta.generate({
     title: home.title,
     description: home.description,
     baseURL: baseURL,
-    path: `/${params.locale}${home.path}`,
+    path: home.path,
     image: home.image,
   });
 }
 
-export default async function RootLayout(props: Readonly<{
+export default function RootLayout(props: Readonly<{
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
 }>) {
   const { children } = props;
-  const params = await props.params;
-  const { person } = getDictionary(params.locale);
+  const { person } = getDictionary();
   return (
     <Flex
       suppressHydrationWarning

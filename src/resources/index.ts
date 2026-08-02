@@ -1,8 +1,7 @@
-import * as tr from "./content.tr";
 import * as en from "./content.en";
 
-export const getDictionary = (locale: string) => {
-  return locale === "en" ? en : tr;
+export const getDictionary = () => {
+  return en;
 };
 
 export {

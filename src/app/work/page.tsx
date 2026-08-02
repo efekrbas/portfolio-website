@@ -3,21 +3,19 @@ import { baseURL } from "@/resources";
 import { getDictionary } from "@/resources";
 import { Projects } from "@/components/work/Projects";
 
-export async function generateMetadata(props: { params: Promise<{ locale: string }> }) {
-  const params = await props.params;
-  const { work } = getDictionary(params.locale);
+export function generateMetadata() {
+  const { work } = getDictionary();
   return Meta.generate({
     title: work.title,
     description: work.description,
     baseURL: baseURL,
     image: `/api/og/generate?title=${encodeURIComponent(work.title)}`,
-    path: `/${params.locale}${work.path}`,
+    path: work.path,
   });
 }
 
-export default async function Work(props: { params: Promise<{ locale: string }> }) {
-  const params = await props.params;
-  const { work, person, about } = getDictionary(params.locale);
+export default function Work() {
+  const { work, person, about } = getDictionary();
   return (
     <Column maxWidth="m" paddingTop="24">
       <Schema
@@ -39,7 +37,7 @@ export default async function Work(props: { params: Promise<{ locale: string }> 
       <Projects />
       <Row horizontal="center" marginTop="m">
         <Button href="https://github.com/efekrbas?tab=repositories" target="_blank" variant="secondary" prefixIcon="github" arrowIcon size="m">
-          {params.locale === 'tr' ? 'Diğer GitHub projelerimi inceleyin' : 'Check out my other GitHub projects'}
+          Check out my other GitHub projects
         </Button>
       </Row>
     </Column>

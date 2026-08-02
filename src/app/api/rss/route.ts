@@ -4,8 +4,8 @@ import { getDictionary } from "@/resources";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const { blog, person } = getDictionary("tr");
-  const posts = getPosts(["src", "app", "[locale]", "blog", "posts"]);
+  const { blog, person } = getDictionary();
+  const posts = getPosts(["src", "app", "blog", "posts"]);
 
   // Sort posts by date (newest first)
   const sortedPosts = posts.sort((a, b) => {

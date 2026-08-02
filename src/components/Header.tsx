@@ -114,9 +114,7 @@ export default TimeDisplay;
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
-  const params = useParams();
-  const locale = (params?.locale as string) || "tr";
-  const { person, about, blog, work, gallery } = getDictionary(locale);
+  const { person, about, blog, work, gallery } = getDictionary();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
 
@@ -132,7 +130,6 @@ export const Header = () => {
   }, [isMobileMenuOpen]);
 
   const resolveHref = (path: string) => {
-    if (locale === "en") return `/en${path === "/" ? "" : path}`;
     return path || "/";
   };
 
@@ -192,7 +189,7 @@ export const Header = () => {
           >
             <Row gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
               {routes["/"] && (
-                <ToggleButton prefixIcon="home" href={resolveHref("/")} selected={pathname === `/${locale}` || pathname === "/"} />
+                <ToggleButton prefixIcon="home" href={resolveHref("/")} selected={pathname === "/"} />
               )}
               <Line background="neutral-alpha-medium" vert maxHeight="24" />
               {routes["/about"] && (
@@ -239,7 +236,7 @@ export const Header = () => {
                     <ToggleButton
                       prefixIcon="github"
                       href={resolveHref("/opensource")}
-                      label={locale === "tr" ? "Açık Kaynak" : "Open Source"}
+                      label="Open Source"
                       selected={pathname.includes("/opensource")}
                     />
                   </Row>
@@ -389,7 +386,7 @@ export const Header = () => {
               {routes["/"] && (
                 <motion.div variants={itemVariants}>
                   <Button prefixIcon="home" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, resolveHref("/"))}>
-                    {locale === "en" ? "Home" : "Ana Sayfa"}
+                    Home
                   </Button>
                 </motion.div>
               )}
@@ -410,7 +407,7 @@ export const Header = () => {
               {routes["/opensource"] && (
                 <motion.div variants={itemVariants}>
                   <Button prefixIcon="github" variant="tertiary" size="l" onClick={(e: any) => handleMobileNav(e, resolveHref("/opensource"))}>
-                    {locale === "tr" ? "Açık Kaynak" : "Open Source"}
+                    Open Source
                   </Button>
                 </motion.div>
               )}

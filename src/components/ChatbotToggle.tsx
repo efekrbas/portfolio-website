@@ -3,16 +3,11 @@
 import { useEffect, useState } from "react";
 import { ToggleButton } from "@once-ui-system/core";
 import { Bot, BotOff } from "lucide-react";
-import { useParams } from "next/navigation";
 
 export const ChatbotToggle = () => {
   const [isVisible, setIsVisible] = useState(true);
-  const params = useParams();
-  const locale = (params?.locale as string) || "tr";
   
-  const tooltipText = isVisible 
-    ? (locale === "tr" ? "Asistanı Gizle" : "Hide Assistant")
-    : (locale === "tr" ? "Asistanı Göster" : "Show Assistant");
+  const tooltipText = isVisible ? "Hide Assistant" : "Show Assistant";
 
   useEffect(() => {
     if (typeof window !== "undefined") {

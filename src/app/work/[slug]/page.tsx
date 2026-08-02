@@ -23,28 +23,24 @@ import { Metadata } from "next";
 import { Projects } from "@/components/work/Projects";
 
 export async function generateStaticParams() {
-  const posts = getPosts(["src", "app", "[locale]", "work", "projects"]);
-  const locales = ['tr', 'en'];
-  return locales.flatMap(locale => 
-    posts.map((post) => ({
-      locale,
-      slug: post.slug,
-    }))
-  );
+  const posts = getPosts(["src", "app", "work", "projects"]);
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string | string[]; locale: string }>;
+  params: Promise<{ slug: string | string[] }>;
 }): Promise<Metadata> {
   const routeParams = await params;
-  const { work, person } = getDictionary(routeParams.locale);
+  const { work, person } = getDictionary();
   const slugPath = Array.isArray(routeParams.slug)
     ? routeParams.slug.join("/")
     : routeParams.slug || "";
 
-  const posts = getPosts(["src", "app", "[locale]", "work", "projects"]);
+  const posts = getPosts(["src", "app", "work", "projects"]);
   let post = posts.find((post) => post.slug === slugPath);
 
   if (!post) return {};
@@ -54,22 +50,22 @@ export async function generateMetadata({
     description: post.metadata.summary,
     baseURL: baseURL,
     image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
-    path: `/${routeParams.locale}${work.path}/${post.slug}`,
+    path: `${work.path}/${post.slug}`,
   });
 }
 
 export default async function Project({
   params,
 }: {
-  params: Promise<{ slug: string | string[]; locale: string }>;
+  params: Promise<{ slug: string | string[] }>;
 }) {
   const routeParams = await params;
-  const { work, person, about } = getDictionary(routeParams.locale);
+  const { work, person, about } = getDictionary();
   const slugPath = Array.isArray(routeParams.slug)
     ? routeParams.slug.join("/")
     : routeParams.slug || "";
 
-  let post = getPosts(["src", "app", "[locale]", "work", "projects"]).find((post) => post.slug === slugPath);
+  let post = getPosts(["src", "app", "work", "projects"]).find((post) => post.slug === slugPath);
 
   if (!post) {
     notFound();
@@ -100,11 +96,11 @@ export default async function Project({
         }}
       />
       <Column maxWidth="s" gap="16" horizontal="center" align="center">
-        <SmartLink href={`/${routeParams.locale}/work`}>
-          <Text variant="label-strong-m">{routeParams.locale === "tr" ? "Projeler" : "Projects"}</Text>
+        <SmartLink href={`/work`}>
+          <Text variant="label-strong-m">Projects</Text>
         </SmartLink>
         <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
-          {post.metadata.publishedAt && formatDate(post.metadata.publishedAt, false, routeParams.locale)}
+          {post.metadata.publishedAt && formatDate(post.metadata.publishedAt, false)}
         </Text>
         <Heading as="h2" id="project-title" variant="display-strong-m">{post.metadata.title}</Heading>
       </Column>
@@ -136,7 +132,7 @@ export default async function Project({
       <Column fillWidth gap="40" horizontal="center" marginTop="40">
         <Line maxWidth="40" />
         <Heading as="h2" id="other-projects" variant="heading-strong-xl" marginBottom="24">
-          {routeParams.locale === "tr" ? "Diğer projeler" : "Other projects"}
+          Other projects
         </Heading>
         <Projects exclude={[post.slug]} range={[1, 2]} />
       </Column>

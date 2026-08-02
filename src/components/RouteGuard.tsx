@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname, useParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { routes, protectedRoutes } from "@/resources/once-ui.config";
 import { Flex, Spinner, Button, Heading, Column, PasswordInput } from "@once-ui-system/core";
-import NotFound from "@/app/[locale]/not-found";
+import NotFound from "@/app/not-found";
 
 interface RouteGuardProps {
   children: React.ReactNode;
@@ -12,8 +12,6 @@ interface RouteGuardProps {
 
 const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
   const pathname = usePathname();
-  const params = useParams();
-  const locale = (params?.locale as string) || "tr";
   const [isRouteEnabled, setIsRouteEnabled] = useState(false);
   const [isPasswordRequired, setIsPasswordRequired] = useState(false);
   const [password, setPassword] = useState("");
@@ -31,7 +29,7 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
       const checkRouteEnabled = () => {
         if (!pathname) return false;
 
-        let cleanPath = pathname.replace(new RegExp(`^/${locale}`), "");
+        let cleanPath = pathname;
         if (cleanPath === "") cleanPath = "/";
 
         if (cleanPath in routes) {
@@ -51,7 +49,7 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
       const routeEnabled = checkRouteEnabled();
       setIsRouteEnabled(routeEnabled);
 
-      let cleanPath = pathname?.replace(new RegExp(`^/${locale}`), "") || "/";
+      let cleanPath = pathname || "/";
       if (cleanPath === "") cleanPath = "/";
 
       if (protectedRoutes[cleanPath as keyof typeof protectedRoutes]) {

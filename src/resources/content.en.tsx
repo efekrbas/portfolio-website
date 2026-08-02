@@ -60,7 +60,7 @@ const home: Home = {
   label: "Home",
   title: `${person.name} - Portfolio`,
   description: `Portfolio website where I share my work as a ${person.role}.`,
-  headline: <>Bridging the gap between software and cybersecurity.</>,
+  headline: <>Where software development meets cybersecurity.</>,
   featured: {
     display: false,
     title: (
@@ -76,6 +76,7 @@ const home: Home = {
   },
   subline: (
     <>
+      <Text as="strong" onBackground="brand-strong" style={{ display: 'block', marginBottom: '0.5rem' }}>Engineering software with a security-first mindset.</Text>
       Hello! I'm Efe. I build efficient tools using secure coding principles, and as a <Text as="span" size="xl" weight="strong">Penetration Tester</Text>, I optimize the digital security of systems.
     </>
   ),
@@ -167,7 +168,7 @@ const about: About = {
       {
         company: "Siber Vatan",
         timeframe: `Sep 2025 - Present · ${calculateDuration("2025-09-01")}`,
-        role: "Cyber Security Student",
+        role: "Cybersecurity Student",
         achievements: [
           <>Qualifying as a program student by ranking in the top 40 in Bilecik as a result of the general CTF exam.</>,
           <>Successfully completing White Hat Hacker, CTF, and Reverse Engineering trainings.</>,

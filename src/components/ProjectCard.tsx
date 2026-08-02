@@ -1,6 +1,5 @@
 "use client";
 
-import { useParams } from "next/navigation";
 import {
   AvatarGroup,
   Carousel,
@@ -32,8 +31,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   avatars,
   link,
 }) => {
-  const params = useParams();
-  const locale = (params?.locale as string) || "tr";
 
   return (
     <Column fillWidth gap="m" paddingBottom="24">
@@ -81,7 +78,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 suffixIcon="chevronRight"
                 style={{ margin: "0" }}
               >
-                {locale === "tr" ? "Projeyi İncele" : "Read case study"}
+                Read case study
               </SmartLink>
             )}
             {link && (
@@ -90,7 +87,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 suffixIcon="arrowUpRight"
                 style={{ margin: "0" }}
               >
-                {locale === "tr" ? "Canlı Projeye Git" : "View project"}
+                View project
               </SmartLink>
             )}
           </Flex>

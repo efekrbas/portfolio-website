@@ -3,21 +3,19 @@ import GalleryView from "@/components/gallery/GalleryView";
 import { baseURL } from "@/resources";
 import { getDictionary } from "@/resources";
 
-export async function generateMetadata(props: { params: Promise<{ locale: string }> }) {
-  const params = await props.params;
-  const { gallery } = getDictionary(params.locale);
+export function generateMetadata() {
+  const { gallery } = getDictionary();
   return Meta.generate({
     title: gallery.title,
     description: gallery.description,
     baseURL: baseURL,
     image: `/api/og/generate?title=${encodeURIComponent(gallery.title)}`,
-    path: `/${params.locale}${gallery.path}`,
+    path: gallery.path,
   });
 }
 
-export default async function Gallery(props: { params: Promise<{ locale: string }> }) {
-  const params = await props.params;
-  const { gallery, person } = getDictionary(params.locale);
+export default function Gallery() {
+  const { gallery, person } = getDictionary();
   return (
     <Column maxWidth="m" fillWidth>
       <Schema

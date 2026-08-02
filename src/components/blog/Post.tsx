@@ -2,7 +2,6 @@
 
 import { Card, Column, Media, Row, Avatar, Text } from "@once-ui-system/core";
 import { formatDate } from "@/utils/formatDate";
-import { useParams } from "next/navigation";
 import { getDictionary } from "@/resources";
 
 interface PostProps {
@@ -12,9 +11,7 @@ interface PostProps {
 }
 
 export default function Post({ post, thumbnail, direction }: PostProps) {
-  const params = useParams();
-  const locale = (params?.locale as string) || "tr";
-  const { person } = getDictionary(locale);
+  const { person } = getDictionary();
 
   return (
     <Card
@@ -50,7 +47,7 @@ export default function Post({ post, thumbnail, direction }: PostProps) {
               <Text variant="label-default-s" align="center">{person.name}</Text>
             </Row>
             <Text variant="body-default-xs" onBackground="neutral-weak" align="center">
-              {formatDate(post.metadata.publishedAt, false, locale)}
+              {formatDate(post.metadata.publishedAt, false)}
             </Text>
           </Row>
           <Text variant="heading-strong-l" wrap="balance" align="center">
