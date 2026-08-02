@@ -103,7 +103,7 @@ const about: About = {
     title: "Who am I?",
     description: (
       <>
-        I worked as an IT Field Support Intern at Medipol Healthcare Group, where I gained practical experience in resolving end-user hardware-software issues and troubleshooting. I also actively participated in the installation and maintenance of computers, printers, and peripherals. I am continuing my associate degree in Computer Programming at Bilecik Şeyh Edebali University, while also focusing on cybersecurity, software development, and artificial intelligence technologies.
+        I worked as an IT Field Support Intern at Medipol Sağlık Grubu, where I gained practical experience in resolving end-user hardware-software issues and troubleshooting. I also actively participated in the installation and maintenance of computers, printers, and peripherals. I am continuing my associate degree in Computer Programming at Bilecik Şeyh Edebali University, while also focusing on cybersecurity, software development, and artificial intelligence technologies.
       </>
     ),
   },
@@ -112,7 +112,7 @@ const about: About = {
     title: "Experience",
     experiences: [
       {
-        company: "Medipol Healthcare Group",
+        company: "Medipol Sağlık Grubu",
         timeframe: `Sep 2024 - Jun 2025 · ${calculateDuration("2024-09-01", "2025-06-01")}`,
         role: "IT Field Support Intern",
         achievements: [

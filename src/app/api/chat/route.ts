@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
                           * Siber0x1 (Social Media Manager)
                           * Hackviser (Campus Ambassador)
                           * Siber Vatan (Cybersecurity Student - received White Hat Hacker training)
-                          * Medipol Healthcare Group (IT Intern)
+                          * Medipol Sağlık Grubu (IT Intern)
                         - Skills: Penetration Testing (Pentest), C, C#, C++, Python, Javascript, Automation.
                         - Projects: Guns.lol checker, Discord tools, Clicord (Discord in Terminal).
                         - Content Creation: He makes software/tech videos on his YouTube channel (@efekrbs) and writes technical articles on cybersecurity and vulnerability analysis on Medium (@efekk).
