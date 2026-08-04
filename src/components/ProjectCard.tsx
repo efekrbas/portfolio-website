@@ -50,6 +50,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         paddingX="s"
         paddingTop="12"
         gap="l"
+        style={{ position: "relative", zIndex: 10 }}
       >
         <Column flex={3} gap="24">
           {title && (
@@ -58,7 +59,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             </Heading>
           )}
         </Column>
-        <Column flex={4} gap="24">
+        <Column flex={4} gap="24" style={{ position: "relative", zIndex: 10 }}>
           {avatars && avatars.length > 0 && (
             <AvatarGroup avatars={avatars} size="m" />
           )}
