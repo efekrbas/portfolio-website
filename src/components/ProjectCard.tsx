@@ -87,7 +87,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 suffixIcon="arrowUpRight"
                 style={{ margin: "0", display: "inline-flex", alignItems: "center", position: "relative", zIndex: 10 }}
               >
-                View project
+                View Live Demo
               </SmartLink>
             )}
           </Flex>
