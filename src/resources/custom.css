@@ -14,7 +14,9 @@
 }
 
 [data-theme="light"] {
-    --chat-window-bg: rgba(255, 255, 255, 0.8);
+    /* Chatbot Variables (Light Mode) */
+    --chat-window-bg: #ffffff;
+    --chat-window-border: rgba(0, 0, 0, 0.15);
     --chat-header-bg: transparent;
     --chat-input-bg: rgba(0, 0, 0, 0.03);
     --chat-input-border: rgba(0, 0, 0, 0.1);
@@ -36,16 +38,32 @@
     --border-subtle: rgba(0, 0, 0, 0.08);
     --border-default: rgba(0, 0, 0, 0.15);
     --chat-btn-color: #333333;
-    --chatbot-bubble-bg: #06b6d4;
+    --chatbot-bubble-bg: #000000;
     --chatbot-bubble-color: #ffffff;
-    --chatbot-bubble-shadow: 0 0 20px rgba(6, 182, 212, 0.6), 0 8px 32px var(--chatbot-shadow);
-    --tooltip-bg: rgba(236, 254, 255, 0.9);
-    --tooltip-border: rgba(165, 243, 252, 1);
+    --chatbot-bubble-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --tooltip-bg: rgba(255, 255, 255, 0.9);
+    --tooltip-border: rgba(0, 0, 0, 0.15);
     --tooltip-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+    /* Hacker / Serious Theme Brand Overrides (Light Mode) */
+    --brand-solid-strong: #000000 !important;
+    --brand-solid-medium: #333333 !important;
+    --brand-solid-weak: #666666 !important;
+    --brand-background-strong: rgba(0, 0, 0, 0.1) !important;
+    --brand-background-medium: rgba(0, 0, 0, 0.05) !important;
+    --brand-background-weak: rgba(0, 0, 0, 0.02) !important;
+    --brand-on-background-strong: #000000 !important;
+    --brand-on-background-medium: #333333 !important;
+    --brand-on-background-weak: #555555 !important;
+    --brand-alpha-strong: rgba(0, 0, 0, 0.2) !important;
+    --brand-alpha-medium: rgba(0, 0, 0, 0.1) !important;
+    --brand-alpha-weak: rgba(0, 0, 0, 0.05) !important;
 }
 
 [data-theme="dark"] {
-    --chat-window-bg: rgba(24, 24, 27, 0.8);
+    /* Chatbot Variables (Dark Mode) */
+    --chat-window-bg: #111111;
+    --chat-window-border: rgba(255, 255, 255, 0.15);
     --chat-header-bg: transparent;
     --chat-input-bg: rgba(255, 255, 255, 0.05);
     --chat-input-border: rgba(255, 255, 255, 0.1);
@@ -67,12 +85,26 @@
     --border-subtle: rgba(255, 255, 255, 0.08);
     --border-default: rgba(255, 255, 255, 0.15);
     --chat-btn-color: #E0E0E0;
-    --chatbot-bubble-bg: #1e3a8a;
-    --chatbot-bubble-color: #ffffff;
-    --chatbot-bubble-shadow: 0 0 24px rgba(59, 130, 246, 0.8), 0 8px 32px var(--chatbot-shadow);
-    --tooltip-bg: var(--chat-window-bg);
+    --chatbot-bubble-bg: #ffffff;
+    --chatbot-bubble-color: #000000;
+    --chatbot-bubble-shadow: 0 0 24px rgba(255, 255, 255, 0.3), 0 8px 32px rgba(0, 0, 0, 0.5);
     --tooltip-border: var(--border-default);
     --tooltip-shadow: 0 8px 32px var(--chatbot-shadow);
+    --page-background: #000000 !important;
+
+    /* Hacker / Serious Theme Brand Overrides */
+    --brand-solid-strong: #ffffff !important;
+    --brand-solid-medium: #e0e0e0 !important;
+    --brand-solid-weak: #cccccc !important;
+    --brand-background-strong: rgba(255, 255, 255, 0.15) !important;
+    --brand-background-medium: rgba(255, 255, 255, 0.08) !important;
+    --brand-background-weak: rgba(255, 255, 255, 0.04) !important;
+    --brand-on-background-strong: #ffffff !important;
+    --brand-on-background-medium: #cccccc !important;
+    --brand-on-background-weak: #999999 !important;
+    --brand-alpha-strong: rgba(255, 255, 255, 0.2) !important;
+    --brand-alpha-medium: rgba(255, 255, 255, 0.1) !important;
+    --brand-alpha-weak: rgba(255, 255, 255, 0.05) !important;
 }
 
 /*

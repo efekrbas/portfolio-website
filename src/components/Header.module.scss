@@ -8,6 +8,10 @@
     mask-size: 100% 100%;
 }
 
+.position {
+    z-index: 99999 !important;
+}
+
 @media (max-width: breakpoints.$s) {
     .position {
         top: auto;

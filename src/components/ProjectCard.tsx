@@ -77,7 +77,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               <SmartLink
                 href={href}
                 suffixIcon="chevronRight"
-                style={{ margin: "0", display: "inline-flex", alignItems: "center", position: "relative", zIndex: 10 }}
+                style={{ margin: "0", display: "inline-flex", alignItems: "center", position: "relative", zIndex: 10, color: "var(--neutral-on-background-strong)" }}
               >
                 Read case study
               </SmartLink>
@@ -86,7 +86,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               <SmartLink
                 href={link}
                 suffixIcon="arrowUpRight"
-                style={{ margin: "0", display: "inline-flex", alignItems: "center", position: "relative", zIndex: 10 }}
+                style={{ margin: "0", display: "inline-flex", alignItems: "center", position: "relative", zIndex: 10, color: "var(--neutral-on-background-strong)" }}
               >
                 View Live Demo
               </SmartLink>

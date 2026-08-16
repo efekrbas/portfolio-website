@@ -12,8 +12,8 @@ const person: Person = {
   firstName: "Efe",
   lastName: "Kırbaş",
   name: `Efe Kırbaş`,
-  role: "Software Developer & Penetration Tester",
-  avatar: "/images/efe.jpg",
+  role: "Software Developer & Vulnerability Researcher",
+  avatar: "/images/lain.png",
   email: "efekrbass@gmail.com",
   location: "Istanbul, TR",
   languages: ["TR", "EN"],
@@ -77,7 +77,7 @@ const home: Home = {
   subline: (
     <>
       <Text as="strong" onBackground="brand-strong" style={{ display: 'block', marginBottom: '0.5rem' }}>Engineering software with a security-first mindset.</Text>
-      Hello! I'm Efe. I build efficient tools using secure coding principles, and as a <Text as="span" size="xl" weight="strong">Penetration Tester</Text>, I optimize the digital security of systems.
+      Hello! I'm Efe. I build efficient tools using secure coding principles, and as a <Text as="span" size="xl" weight="strong">Vulnerability Researcher</Text>, I discover and analyze security flaws to strengthen digital systems.
     </>
   ),
 };

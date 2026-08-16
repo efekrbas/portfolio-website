@@ -85,7 +85,7 @@ export const GithubPRCard: React.FC<GithubPRCardProps> = ({
                   {repo}
                 </Text>
                 <Text variant="heading-strong-m" onBackground="neutral-strong" style={{ lineHeight: "1.3" }}>
-                  <span style={{ color: "var(--brand-alpha-strong)" }}>#{prNumber}</span> {title}
+                  <span style={{ color: "var(--neutral-on-background-weak)" }}>#{prNumber}</span> {title}
                 </Text>
               </Column>
               <Avatar src={avatarUrl} size="l" style={{ marginLeft: "16px", flexShrink: 0 }} />
@@ -94,15 +94,15 @@ export const GithubPRCard: React.FC<GithubPRCardProps> = ({
             {/* Stats Row */}
             <Row gap="16" vertical="center" style={{ flexWrap: "wrap", marginTop: "8px" }}>
               <Row gap="4" vertical="center">
-                <MessageSquare size={12} color="var(--neutral-alpha-medium)" />
+                <MessageSquare size={12} color="var(--neutral-on-background-weak)" />
                 <Text variant="body-default-xs" onBackground="neutral-weak">{comments} comments</Text>
               </Row>
               <Row gap="4" vertical="center">
-                <Eye size={12} color="var(--neutral-alpha-medium)" />
+                <Eye size={12} color="var(--neutral-on-background-weak)" />
                 <Text variant="body-default-xs" onBackground="neutral-weak">{reviews} reviews</Text>
               </Row>
               <Row gap="4" vertical="center">
-                <FileCode2 size={12} color="var(--neutral-alpha-medium)" />
+                <FileCode2 size={12} color="var(--neutral-on-background-weak)" />
                 <Text variant="body-default-xs" onBackground="neutral-weak">{files} files</Text>
               </Row>
               <Row gap="8" vertical="center">
@@ -134,7 +134,7 @@ export const GithubPRCard: React.FC<GithubPRCardProps> = ({
                   <Text variant="label-strong-s" onBackground="neutral-strong">{projectName}</Text>
                 </Column>
               </Row>
-              <ExternalLink size={16} color="var(--neutral-alpha-medium)" />
+              <ExternalLink size={16} color="var(--neutral-on-background-weak)" />
             </Row>
           </Column>
         </Column>

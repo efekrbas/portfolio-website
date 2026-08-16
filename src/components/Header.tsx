@@ -151,14 +151,14 @@ export const Header = () => {
 
   return (
     <>
-      <Fade s={{ hide: true }} fillWidth position="fixed" height="80" zIndex={9} />
-      <Fade s={{ hide: true }} fillWidth position="fixed" height="80" zIndex={9} />
+
       <Row
         fitHeight
         className={styles.position}
         position="sticky"
         as="header"
-        zIndex={9}
+        zIndex={100}
+        style={{ zIndex: 9999 }}
         fillWidth
         padding="8"
         horizontal="center"
