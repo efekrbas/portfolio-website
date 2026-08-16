@@ -342,7 +342,7 @@ export const Header = () => {
             {person.name}
           </Text>
         </Link>
-        <Row gap="12" vertical="center">
+        <Row gap="4" vertical="center">
           {display.themeSwitcher && <ThemeToggle />}
           <ChatbotToggle />
           <AnimatedHamburger isOpen={isMobileMenuOpen} toggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
