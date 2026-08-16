@@ -157,7 +157,7 @@ export const Header = () => {
         className={styles.position}
         position="sticky"
         as="header"
-        zIndex={100}
+        zIndex={9}
         style={{ zIndex: 9999 }}
         fillWidth
         padding="8"
