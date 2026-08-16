@@ -111,6 +111,15 @@ export const AnimatedPRList = () => {
             display: flex;
           }
         }
+        .carousel-spacer {
+          min-width: calc(50vw - 190px);
+          flex-shrink: 0;
+        }
+        @media (min-width: 769px) {
+          .carousel-spacer {
+            min-width: 10vw;
+          }
+        }
       `}</style>
 
       <div 
@@ -136,13 +145,13 @@ export const AnimatedPRList = () => {
         }}
         whileTap={{ cursor: "grabbing" }}
       >
-        <div style={{ minWidth: "calc(50vw - 190px)", flexShrink: 0 }} />
+        <div className="carousel-spacer" />
         {prs.map((pr, idx) => (
           <div key={idx} style={{ pointerEvents: "none", marginRight: idx === prs.length - 1 ? 0 : "24px" }}>
             <GithubPRCard {...pr} />
           </div>
         ))}
-        <div style={{ minWidth: "calc(50vw - 190px)", flexShrink: 0 }} />
+        <div className="carousel-spacer" />
       </motion.div>
     </div>
   );
