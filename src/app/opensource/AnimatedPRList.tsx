@@ -1,9 +1,7 @@
 "use client";
 
 import React from "react";
-
-
-
+import { motion } from "framer-motion";
 import { GithubPRCard } from "./GithubPRCard";
 
 export const AnimatedPRList = () => {
@@ -59,11 +57,18 @@ export const AnimatedPRList = () => {
     },
   ];
 
-  // Duplicate the array to create a seamless infinite loop
-  const duplicatedPrs = [...prs, ...prs, ...prs, ...prs];
+  const carouselRef = React.useRef<HTMLDivElement>(null);
+  const [width, setWidth] = React.useState(0);
+
+  React.useEffect(() => {
+    if (carouselRef.current) {
+      setWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth);
+    }
+  }, []);
 
   return (
-    <div 
+    <motion.div 
+      ref={carouselRef}
       style={{ 
         overflow: "hidden", 
         width: "100vw",
@@ -73,31 +78,29 @@ export const AnimatedPRList = () => {
         marginLeft: "-50vw",
         marginRight: "-50vw",
         padding: "40px 0",
+        cursor: "grab",
         maskImage: "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)",
         WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)"
       }}
+      whileTap={{ cursor: "grabbing" }}
     >
-      <style>{`
-        @keyframes scroll-pr {
-          0% { transform: translateX(-50%); }
-          100% { transform: translateX(0%); }
-        }
-        .pr-marquee {
-          display: flex;
-          gap: 24px;
-          width: max-content;
-          perspective: 1000px;
-          animation: scroll-pr 40s linear infinite;
-        }
-        .pr-marquee:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
-      <div className="pr-marquee">
-        {duplicatedPrs.map((pr, idx) => (
+      <motion.div 
+        drag="x"
+        dragConstraints={{ right: 0, left: -width }}
+        dragElastic={0.1}
+        dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
+        style={{
+          display: "flex",
+          gap: "24px",
+          width: "max-content",
+          paddingLeft: "5vw",
+          paddingRight: "5vw"
+        }}
+      >
+        {prs.map((pr, idx) => (
           <GithubPRCard key={idx} {...pr} />
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
