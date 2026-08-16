@@ -60,13 +60,13 @@ export const AnimatedPRList = () => {
   const carouselRef = React.useRef<HTMLDivElement>(null);
   const innerRef = React.useRef<HTMLDivElement>(null);
   const [width, setWidth] = React.useState(0);
+  const [hasDragged, setHasDragged] = React.useState(false);
 
   React.useEffect(() => {
     const updateWidth = () => {
       if (carouselRef.current && innerRef.current) {
-        // Calculate the difference between the full content width and the visible viewport
         const scrollableWidth = innerRef.current.scrollWidth - carouselRef.current.offsetWidth;
-        setWidth(scrollableWidth > 0 ? scrollableWidth + 100 : 0); // +100 for some extra padding at the end
+        setWidth(scrollableWidth > 0 ? scrollableWidth : 0); 
       }
     };
     
@@ -104,6 +104,7 @@ export const AnimatedPRList = () => {
           letter-spacing: 0.05em;
           text-transform: uppercase;
           pointer-events: none;
+          transition: opacity 0.5s ease;
         }
         @media (max-width: 768px) {
           .swipe-indicator {
@@ -112,7 +113,10 @@ export const AnimatedPRList = () => {
         }
       `}</style>
 
-      <div className="swipe-indicator">
+      <div 
+        className="swipe-indicator" 
+        style={{ opacity: hasDragged ? 0 : 1 }}
+      >
         <span>←</span>
         <span>Swipe to explore</span>
         <span>→</span>
@@ -121,24 +125,24 @@ export const AnimatedPRList = () => {
       <motion.div 
         ref={innerRef}
         drag="x"
+        onDragStart={() => setHasDragged(true)}
         dragConstraints={{ right: 0, left: -width }}
         dragElastic={0.1}
         dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
         style={{
           display: "flex",
-          gap: "24px",
           width: "max-content",
-          paddingLeft: "calc(50vw - 190px)",
-          paddingRight: "calc(50vw - 190px)",
           cursor: "grab"
         }}
         whileTap={{ cursor: "grabbing" }}
       >
+        <div style={{ minWidth: "calc(50vw - 190px)", flexShrink: 0 }} />
         {prs.map((pr, idx) => (
-          <div key={idx} style={{ pointerEvents: "none" }}>
+          <div key={idx} style={{ pointerEvents: "none", marginRight: idx === prs.length - 1 ? 0 : "24px" }}>
             <GithubPRCard {...pr} />
           </div>
         ))}
+        <div style={{ minWidth: "calc(50vw - 190px)", flexShrink: 0 }} />
       </motion.div>
     </div>
   );
