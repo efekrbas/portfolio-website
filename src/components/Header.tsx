@@ -323,7 +323,7 @@ export const Header = () => {
         paddingY="12"
         horizontal="between"
         vertical="center"
-        background="surface"
+        background="page"
         hide
         m={{ hide: false }}
         s={{ hide: false }}
@@ -333,8 +333,7 @@ export const Header = () => {
           left: 0,
           right: 0,
           zIndex: 100000,
-          backdropFilter: "blur(8px)",
-          borderBottom: "1px solid var(--neutral-alpha-weak)",
+          borderBottom: "1px solid var(--neutral-border-weak)",
         }}
       >
         <Link href={resolveHref("/")} style={{ textDecoration: "none" }}>
@@ -366,7 +365,6 @@ export const Header = () => {
               bottom: 0,
               zIndex: 99999,
               backgroundColor: "var(--page-background)",
-              backdropFilter: "blur(16px)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
