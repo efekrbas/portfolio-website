@@ -112,13 +112,22 @@ const about: About = {
     title: "Experience",
     experiences: [
       {
+        company: "Midnight",
+        timeframe: `Aug 2026 - Present · ${calculateDuration("2026-08-01")}`,
+        role: "Builder - Aliit Fellowship (Contract)",
+        achievements: [
+          <>Contributing to Midnight's core via code, custom tools, and documentation.</>,
+          <>Mentoring Web3 builders and resolving early-stage technical issues.</>,
+        ],
+        images: [],
+      },
+      {
         company: "Medipol Sağlık Grubu",
         timeframe: `Sep 2024 - Jun 2025 · ${calculateDuration("2024-09-01", "2025-06-01")}`,
         role: "IT Field Support Intern",
         achievements: [
-          <>Providing technical (End-User) support for hardware and software issues arising on the user side.</>,
-          <>Carrying out the installation, maintenance, configuration, and update processes of system and hardware components.</>,
-          <>Taking an active role in tracking network infrastructure, fault detection, and troubleshooting operations.</>,
+          <>Provided end-user technical support for hardware, software, and system issues.</>,
+          <>Assisted in system maintenance, hardware deployment, and network troubleshooting.</>,
         ],
         images: [],
       },
@@ -128,6 +137,16 @@ const about: About = {
     display: true,
     title: "Volunteering",
     experiences: [
+      {
+        company: "Midnight",
+        timeframe: `Aug 2026 - Present · ${calculateDuration("2026-08-01")}`,
+        role: "Ambassador",
+        achievements: [
+          <>Promoting Zero-Knowledge (ZK) privacy tech and onboarding developers to the ecosystem.</>,
+          <>Creating technical resources and providing Discord support for Midnight SDK & smart contracts.</>,
+        ],
+        images: [],
+      },
       {
         company: "Gallipolixyz",
         timeframe: `Jul 2026 - Present · ${calculateDuration("2026-07-01")}`,
