@@ -621,6 +621,8 @@
     }
 }
 
-.clean-navbar button {
+.clean-navbar button,
+.clean-navbar a,
+.clean-navbar [role="button"] {
     background-color: transparent !important;
 }
