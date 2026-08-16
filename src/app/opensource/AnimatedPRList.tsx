@@ -59,6 +59,29 @@ export const AnimatedPRList = () => {
   const carouselRef = React.useRef<HTMLDivElement>(null);
   const [hasDragged, setHasDragged] = React.useState(false);
 
+  React.useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      // Only block horizontal trackpad swipes
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        const isAtLeft = el.scrollLeft <= 0;
+        const isAtRight = Math.ceil(el.scrollLeft + el.clientWidth) >= el.scrollWidth;
+
+        if (e.deltaX < 0 && isAtLeft) {
+          e.preventDefault(); // Block back navigation
+        } else if (e.deltaX > 0 && isAtRight) {
+          e.preventDefault(); // Block forward navigation
+        }
+      }
+    };
+
+    // passive: false is required to allow e.preventDefault()
+    el.addEventListener("wheel", handleWheel, { passive: false });
+    return () => el.removeEventListener("wheel", handleWheel);
+  }, []);
+
   return (
     <div style={{ position: "relative" }}>
       <style>{`
@@ -125,7 +148,8 @@ export const AnimatedPRList = () => {
           WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)",
           display: "flex",
           scrollbarWidth: "none",
-          msOverflowStyle: "none"
+          msOverflowStyle: "none",
+          overscrollBehaviorX: "contain"
         }}
       >
         <div className="carousel-spacer" />

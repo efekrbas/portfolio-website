@@ -625,4 +625,19 @@
 .clean-navbar a,
 .clean-navbar [role="button"] {
     background-color: transparent !important;
+    color: var(--brand-on-background-strong) !important;
+}
+
+.clean-navbar button *,
+.clean-navbar a *,
+.clean-navbar [role="button"] * {
+    color: var(--brand-on-background-strong) !important;
+}
+
+[data-theme="dark"] .theme-toggle-btn {
+    color: #ffffff !important;
+}
+
+[data-theme="light"] .theme-toggle-btn {
+    color: #000000 !important;
 }
