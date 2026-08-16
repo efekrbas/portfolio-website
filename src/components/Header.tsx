@@ -186,6 +186,7 @@ export const Header = () => {
             padding="4"
             horizontal="center"
             zIndex={1}
+            className="clean-navbar"
           >
             <Row gap="4" vertical="center" textVariant="body-default-s" suppressHydrationWarning>
               {routes["/"] && (
