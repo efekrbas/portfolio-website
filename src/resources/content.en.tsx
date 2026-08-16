@@ -180,7 +180,7 @@ const about: About = {
         timeframe: `Feb 2026 - Present · ${calculateDuration("2026-02-01")}`,
         role: "Campus Ambassador",
         achievements: [
-          <>Guiding the learning processes of individuals who want to develop in the field of cybersecurity by recommending Hackviser.</>,
+          <>Guiding aspiring cybersecurity learners and promoting Hackviser across campus communities.</>,
         ],
         images: [],
       },
