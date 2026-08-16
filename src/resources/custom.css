@@ -621,10 +621,6 @@
     }
 }
 
-.clean-navbar button[aria-pressed="true"] {
+.clean-navbar button {
     background-color: transparent !important;
-}
-
-.clean-navbar button[aria-pressed="true"] * {
-    color: var(--brand-on-background-strong) !important;
 }

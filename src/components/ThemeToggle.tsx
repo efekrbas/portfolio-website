@@ -34,7 +34,7 @@ export const ThemeToggle: React.FC = () => {
         borderRadius: "var(--radius-m)",
         border: "1px solid transparent",
         backgroundColor: "transparent",
-        color: "var(--neutral-on-background-weak)",
+        color: "var(--neutral-on-background-medium)",
         cursor: "pointer",
         transition: "color 0.2s, background-color 0.2s"
       }}
