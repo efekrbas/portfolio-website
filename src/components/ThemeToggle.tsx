@@ -60,12 +60,6 @@ export const ThemeToggle: React.FC = () => {
         cursor: "pointer",
         transition: "color 0.2s, background-color 0.2s"
       }}
-      onMouseOver={(e) => {
-        e.currentTarget.style.backgroundColor = "var(--neutral-alpha-weak)";
-      }}
-      onMouseOut={(e) => {
-        e.currentTarget.style.backgroundColor = "transparent";
-      }}
     >
       {currentTheme === "light" ? (
         <Moon size={20} strokeWidth={2} />

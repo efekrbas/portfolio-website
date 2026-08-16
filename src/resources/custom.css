@@ -623,8 +623,19 @@
 
 .clean-navbar button,
 .clean-navbar a,
-.clean-navbar [role="button"] {
+.clean-navbar [role="button"],
+.clean-navbar button:hover,
+.clean-navbar a:hover,
+.clean-navbar [role="button"]:hover,
+.clean-navbar button:active,
+.clean-navbar a:active,
+.clean-navbar [role="button"]:active,
+.clean-navbar button:focus,
+.clean-navbar a:focus,
+.clean-navbar [role="button"]:focus {
     background-color: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
     color: var(--brand-on-background-strong) !important;
 }
 

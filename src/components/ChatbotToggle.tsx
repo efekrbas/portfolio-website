@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ToggleButton } from "@once-ui-system/core";
 import { Bot, BotOff } from "lucide-react";
 
 export const ChatbotToggle = () => {
@@ -29,11 +28,24 @@ export const ChatbotToggle = () => {
   };
 
   return (
-    <ToggleButton
+    <button
+      className="theme-toggle-btn"
       onClick={toggleVisibility}
-      selected={isVisible}
+      aria-label={tooltipText}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "32px",
+        height: "32px",
+        borderRadius: "var(--radius-m)",
+        border: "1px solid transparent",
+        backgroundColor: "transparent",
+        cursor: "pointer",
+        transition: "color 0.2s, background-color 0.2s"
+      }}
     >
-      {isVisible ? <Bot size={20} /> : <BotOff size={20} />}
-    </ToggleButton>
+      {isVisible ? <Bot size={20} strokeWidth={2} /> : <BotOff size={20} strokeWidth={2} />}
+    </button>
   );
 };
