@@ -91,6 +91,33 @@ export const AnimatedPRList = () => {
         WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)"
       }}
     >
+      <style>{`
+        .swipe-indicator {
+          display: none;
+          justify-content: center;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 20px;
+          color: var(--neutral-on-background-weak);
+          font-family: var(--font-label);
+          font-size: 12px;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          pointer-events: none;
+        }
+        @media (max-width: 768px) {
+          .swipe-indicator {
+            display: flex;
+          }
+        }
+      `}</style>
+
+      <div className="swipe-indicator">
+        <span>←</span>
+        <span>Swipe to explore</span>
+        <span>→</span>
+      </div>
+
       <motion.div 
         ref={innerRef}
         drag="x"
@@ -101,8 +128,8 @@ export const AnimatedPRList = () => {
           display: "flex",
           gap: "24px",
           width: "max-content",
-          paddingLeft: "5vw",
-          paddingRight: "5vw",
+          paddingLeft: "calc(50vw - 190px)",
+          paddingRight: "calc(50vw - 190px)",
           cursor: "grab"
         }}
         whileTap={{ cursor: "grabbing" }}
