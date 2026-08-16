@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { GithubPRCard } from "./GithubPRCard";
 
 export const AnimatedPRList = () => {
@@ -58,39 +57,10 @@ export const AnimatedPRList = () => {
   ];
 
   const carouselRef = React.useRef<HTMLDivElement>(null);
-  const innerRef = React.useRef<HTMLDivElement>(null);
-  const [width, setWidth] = React.useState(0);
   const [hasDragged, setHasDragged] = React.useState(false);
 
-  React.useEffect(() => {
-    const updateWidth = () => {
-      if (carouselRef.current && innerRef.current) {
-        const scrollableWidth = innerRef.current.scrollWidth - carouselRef.current.offsetWidth;
-        setWidth(scrollableWidth > 0 ? scrollableWidth : 0);
-      }
-    };
-
-    updateWidth();
-    window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
-  }, []);
-
   return (
-    <div
-      ref={carouselRef}
-      style={{
-        overflow: "hidden",
-        width: "100vw",
-        position: "relative",
-        left: "50%",
-        right: "50%",
-        marginLeft: "-50vw",
-        marginRight: "-50vw",
-        padding: "40px 0",
-        maskImage: "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)",
-        WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)"
-      }}
-    >
+    <div style={{ position: "relative" }}>
       <style>{`
         .swipe-indicator {
           display: none;
@@ -120,6 +90,10 @@ export const AnimatedPRList = () => {
             min-width: 5vw;
           }
         }
+        /* Hide scrollbar */
+        .pr-scroll-container::-webkit-scrollbar {
+          display: none;
+        }
       `}</style>
 
       <div
@@ -131,28 +105,37 @@ export const AnimatedPRList = () => {
         <span>→</span>
       </div>
 
-      <motion.div
-        ref={innerRef}
-        drag="x"
-        onDragStart={() => setHasDragged(true)}
-        dragConstraints={{ right: 0, left: -width }}
-        dragElastic={0.1}
-        dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
-        style={{
-          display: "flex",
-          width: "max-content",
-          cursor: "grab"
+      <div
+        ref={carouselRef}
+        className="pr-scroll-container"
+        onScroll={() => {
+          if (!hasDragged) setHasDragged(true);
         }}
-        whileTap={{ cursor: "grabbing" }}
+        style={{
+          overflowX: "auto",
+          overflowY: "hidden",
+          width: "100vw",
+          position: "relative",
+          left: "50%",
+          right: "50%",
+          marginLeft: "-50vw",
+          marginRight: "-50vw",
+          padding: "40px 0",
+          maskImage: "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)",
+          display: "flex",
+          scrollbarWidth: "none",
+          msOverflowStyle: "none"
+        }}
       >
         <div className="carousel-spacer" />
         {prs.map((pr, idx) => (
-          <div key={idx} style={{ pointerEvents: "none", marginRight: idx === prs.length - 1 ? 0 : "24px" }}>
+          <div key={idx} style={{ flexShrink: 0, marginRight: idx === prs.length - 1 ? 0 : "24px" }}>
             <GithubPRCard {...pr} />
           </div>
         ))}
         <div className="carousel-spacer" />
-      </motion.div>
+      </div>
     </div>
   );
 };
