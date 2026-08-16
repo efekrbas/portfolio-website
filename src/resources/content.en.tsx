@@ -103,7 +103,7 @@ const about: About = {
     title: "Who am I?",
     description: (
       <>
-        I worked as an IT Field Support Intern at Medipol Sağlık Grubu, where I gained practical experience in resolving end-user hardware-software issues and troubleshooting. I also actively participated in the installation and maintenance of computers, printers, and peripherals. I am continuing my associate degree in Computer Programming at Bilecik Şeyh Edebali University, while also focusing on cybersecurity, software development, and artificial intelligence technologies.
+        Focused on building secure software, Web3 ecosystems, and AI-driven solutions. Studying Computer Programming at Bilecik Şeyh Edebali University with a practical background in IT support and systems troubleshooting.
       </>
     ),
   },
