@@ -5,14 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, Send, X, Bot, User } from 'lucide-react';
 import { getDictionary } from "@/resources";
 
-const BEEP_BOOP_MESSAGES = [
-    'beep boop 🤖',
-    'hey! 👋',
-    '01100010 💾',
-    '*bzzzt* ⚡',
-    'meow? 🐱',
-];
-
 export function Chatbot() {
     const { chatbot: t } = getDictionary();
 
@@ -35,47 +27,9 @@ export function Chatbot() {
         setIsOpen(false);
     };
     const [isVisible, setIsVisible] = useState(true);
-    const [showBeepBoop, setShowBeepBoop] = useState(false);
-    const [beepBoopIndex, setBeepBoopIndex] = useState(0);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const suggestionsRef = useRef<HTMLDivElement>(null);
     const isDragging = useRef(false);
-
-    // "beep boop" speech bubble timer
-    useEffect(() => {
-        if (isOpen) {
-            setShowBeepBoop(false);
-            return;
-        }
-
-        const showDelay = setTimeout(() => {
-            setShowBeepBoop(true);
-            setBeepBoopIndex(prev => (prev + 1) % BEEP_BOOP_MESSAGES.length);
-        }, 5000);
-
-        return () => clearTimeout(showDelay);
-    }, [isOpen]);
-
-    useEffect(() => {
-        if (!showBeepBoop || isOpen) return;
-
-        const hideTimeout = setTimeout(() => {
-            setShowBeepBoop(false);
-        }, 4000);
-
-        return () => clearTimeout(hideTimeout);
-    }, [showBeepBoop, isOpen]);
-
-    useEffect(() => {
-        if (showBeepBoop || isOpen) return;
-
-        const nextShow = setTimeout(() => {
-            setShowBeepBoop(true);
-            setBeepBoopIndex(prev => (prev + 1) % BEEP_BOOP_MESSAGES.length);
-        }, 15000);
-
-        return () => clearTimeout(nextShow);
-    }, [showBeepBoop, isOpen]);
 
 
     // Drag-to-scroll for suggestions on desktop
@@ -312,22 +266,6 @@ export function Chatbot() {
                             </form>
                         </motion.div>
                     </>
-                )}
-            </AnimatePresence>
-
-            <AnimatePresence>
-                {showBeepBoop && !isOpen && (
-                    <motion.div
-                        className="beep-boop-bubble"
-                        initial={{ opacity: 0, y: 10, scale: 0.8 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 10, scale: 0.8 }}
-                        transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-                        onClick={() => { setShowBeepBoop(false); setIsOpen(true); }}
-                    >
-                        {BEEP_BOOP_MESSAGES[beepBoopIndex]}
-                        <span className="beep-boop-tail" />
-                    </motion.div>
                 )}
             </AnimatePresence>
 
