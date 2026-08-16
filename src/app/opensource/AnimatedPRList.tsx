@@ -58,16 +58,25 @@ export const AnimatedPRList = () => {
   ];
 
   const carouselRef = React.useRef<HTMLDivElement>(null);
+  const innerRef = React.useRef<HTMLDivElement>(null);
   const [width, setWidth] = React.useState(0);
 
   React.useEffect(() => {
-    if (carouselRef.current) {
-      setWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth);
-    }
+    const updateWidth = () => {
+      if (carouselRef.current && innerRef.current) {
+        // Calculate the difference between the full content width and the visible viewport
+        const scrollableWidth = innerRef.current.scrollWidth - carouselRef.current.offsetWidth;
+        setWidth(scrollableWidth > 0 ? scrollableWidth + 100 : 0); // +100 for some extra padding at the end
+      }
+    };
+    
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
   }, []);
 
   return (
-    <motion.div 
+    <div 
       ref={carouselRef}
       style={{ 
         overflow: "hidden", 
@@ -78,13 +87,12 @@ export const AnimatedPRList = () => {
         marginLeft: "-50vw",
         marginRight: "-50vw",
         padding: "40px 0",
-        cursor: "grab",
         maskImage: "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)",
         WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)"
       }}
-      whileTap={{ cursor: "grabbing" }}
     >
       <motion.div 
+        ref={innerRef}
         drag="x"
         dragConstraints={{ right: 0, left: -width }}
         dragElastic={0.1}
@@ -94,13 +102,17 @@ export const AnimatedPRList = () => {
           gap: "24px",
           width: "max-content",
           paddingLeft: "5vw",
-          paddingRight: "5vw"
+          paddingRight: "5vw",
+          cursor: "grab"
         }}
+        whileTap={{ cursor: "grabbing" }}
       >
         {prs.map((pr, idx) => (
-          <GithubPRCard key={idx} {...pr} />
+          <div key={idx} style={{ pointerEvents: "none" }}>
+            <GithubPRCard {...pr} />
+          </div>
         ))}
       </motion.div>
-    </motion.div>
+    </div>
   );
 };
