@@ -10,6 +10,7 @@
 
 .position {
     z-index: 99999 !important;
+    background-color: var(--page-background);
 }
 
 @media (max-width: breakpoints.$s) {
