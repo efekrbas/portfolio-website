@@ -138,12 +138,30 @@ const about: About = {
     title: "Volunteering",
     experiences: [
       {
+        company: "BBData",
+        timeframe: `Aug 2026 - Present · ${calculateDuration("2026-08-01")}`,
+        role: "Mobile Security Analyst",
+        achievements: [
+          <>Conducting security analysis and vulnerability assessments on mobile applications.</>,
+        ],
+        images: [],
+      },
+      {
         company: "Midnight",
         timeframe: `Aug 2026 - Present · ${calculateDuration("2026-08-01")}`,
         role: "Ambassador",
         achievements: [
           <>Promoting Zero-Knowledge (ZK) privacy tech and onboarding developers to the ecosystem.</>,
           <>Creating technical resources and providing Discord support for Midnight SDK & smart contracts.</>,
+        ],
+        images: [],
+      },
+      {
+        company: "AltaySec",
+        timeframe: "Jun 2026 - Aug 2026 · 2 mos",
+        role: "AI Security Core Team Member",
+        achievements: [
+          <>Contributing to AI security research and developing security solutions within the core team.</>,
         ],
         images: [],
       },

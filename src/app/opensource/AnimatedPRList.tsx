@@ -59,6 +59,11 @@ export const AnimatedPRList = () => {
   const carouselRef = React.useRef<HTMLDivElement>(null);
   const [hasDragged, setHasDragged] = React.useState(false);
 
+  const isDragging = React.useRef(false);
+  const startX = React.useRef(0);
+  const scrollLeft = React.useRef(0);
+  const dragDistance = React.useRef(0);
+
   React.useEffect(() => {
     const el = carouselRef.current;
     if (!el) return;
@@ -81,6 +86,60 @@ export const AnimatedPRList = () => {
     el.addEventListener("wheel", handleWheel, { passive: false });
     return () => el.removeEventListener("wheel", handleWheel);
   }, []);
+
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!carouselRef.current) return;
+      if (e.key === "ArrowLeft") {
+        carouselRef.current.scrollBy({ left: -600, behavior: "smooth" });
+      } else if (e.key === "ArrowRight") {
+        carouselRef.current.scrollBy({ left: 600, behavior: "smooth" });
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    isDragging.current = true;
+    dragDistance.current = 0;
+    startX.current = e.pageX;
+    scrollLeft.current = carouselRef.current?.scrollLeft || 0;
+    if (carouselRef.current) {
+      carouselRef.current.style.userSelect = "none";
+    }
+  };
+
+  const handleMouseLeave = () => {
+    isDragging.current = false;
+    if (carouselRef.current) {
+      carouselRef.current.style.userSelect = "";
+    }
+  };
+
+  const handleMouseUp = () => {
+    isDragging.current = false;
+    if (carouselRef.current) {
+      carouselRef.current.style.userSelect = "";
+    }
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging.current) return;
+    e.preventDefault();
+    const dx = e.pageX - startX.current;
+    dragDistance.current = Math.abs(dx);
+    if (carouselRef.current) {
+      carouselRef.current.scrollLeft = scrollLeft.current - dx;
+    }
+  };
+
+  const handleClickCapture = (e: React.MouseEvent) => {
+    if (dragDistance.current > 5) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+  };
 
   return (
     <div style={{ position: "relative" }}>
@@ -117,6 +176,18 @@ export const AnimatedPRList = () => {
         .pr-scroll-container::-webkit-scrollbar {
           display: none;
         }
+        .pr-scroll-container {
+          cursor: grab;
+          user-select: none;
+          -webkit-user-select: none;
+        }
+        .pr-scroll-container * {
+          -webkit-user-drag: none;
+          user-select: none;
+        }
+        .pr-scroll-container:active {
+          cursor: grabbing;
+        }
       `}</style>
 
       <div
@@ -134,6 +205,11 @@ export const AnimatedPRList = () => {
         onScroll={() => {
           if (!hasDragged) setHasDragged(true);
         }}
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+        onClickCapture={handleClickCapture}
         style={{
           overflowX: "auto",
           overflowY: "hidden",
