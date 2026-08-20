@@ -13,7 +13,7 @@ import {
   RevealFx,
   SpacingToken,
 } from "@once-ui-system/core";
-import { Footer, Header, RouteGuard, Providers, Chatbot } from "@/components";
+import { Footer, Header, RouteGuard, Providers } from "@/components";
 import { baseURL, effects, fonts, style, dataStyle } from "@/resources";
 import { getDictionary } from "@/resources";
 
@@ -171,7 +171,6 @@ export default function RootLayout(props: Readonly<{
             </Flex>
           </Flex>
           <Footer />
-          <Chatbot />
         </Column>
       </Providers>
     </Flex>
