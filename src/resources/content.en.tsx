@@ -76,7 +76,6 @@ const home: Home = {
   },
   subline: (
     <>
-      <Text as="strong" onBackground="brand-strong" style={{ display: 'block', marginBottom: '0.5rem' }}>Engineering software with a security-first mindset.</Text>
       Hello! I'm Efe. I build efficient tools using secure coding principles, and as a <Text as="span" size="xl" weight="strong">Vulnerability Researcher</Text>, I discover and analyze security flaws to strengthen digital systems.
     </>
   ),
