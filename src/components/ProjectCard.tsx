@@ -6,7 +6,6 @@ import {
   Column,
   Flex,
   Heading,
-  SmartLink,
   Text,
   Button,
 } from "@once-ui-system/core";
@@ -36,6 +35,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     <Column fillWidth gap="m" paddingBottom="24">
       {images && images.length > 0 && (
         <Carousel
+          radius="none"
           sizes="(max-width: 960px) 100vw, 960px"
           items={images.map((image) => ({
             slide: image,
@@ -72,24 +72,26 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               {description}
             </Text>
           )}
-          <Flex gap="24" vertical="center" style={{ position: "relative", zIndex: 10 }}>
+          <Flex gap="16" vertical="center" style={{ position: "relative", zIndex: 10, flexWrap: "wrap" }}>
             {href && (
-              <SmartLink
+              <Button
                 href={href}
                 suffixIcon="chevronRight"
-                style={{ margin: "0", display: "inline-flex", alignItems: "center", position: "relative", zIndex: 10, color: "var(--neutral-on-background-strong)" }}
+                variant="secondary"
+                size="m"
               >
                 Read case study
-              </SmartLink>
+              </Button>
             )}
             {link && (
-              <SmartLink
+              <Button
                 href={link}
                 suffixIcon="arrowUpRight"
-                style={{ margin: "0", display: "inline-flex", alignItems: "center", position: "relative", zIndex: 10, color: "var(--neutral-on-background-strong)" }}
+                variant="tertiary"
+                size="m"
               >
                 View Live Demo
-              </SmartLink>
+              </Button>
             )}
           </Flex>
         </Column>
