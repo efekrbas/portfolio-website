@@ -1,3 +1,7 @@
+html, body {
+    scrollbar-gutter: stable;
+}
+
 :root {
     --accent-color: var(--brand-solid-strong);
     --invert-color: var(--brand-on-solid-strong);
